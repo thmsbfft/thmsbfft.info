@@ -1,0 +1,29 @@
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.smooth {
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@-moz-keyframes blink {
+  0% { background: #fff; }
+  50% { background: #000; }
+}
+ 
+@-webkit-keyframes blink {
+  0% { background: #fff; }
+  50% { background: #000; }
+}
