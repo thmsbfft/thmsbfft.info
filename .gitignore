@@ -3,5 +3,3 @@ node_modules
 www
 deploy
 .DS_Store
-
-*.jpg
