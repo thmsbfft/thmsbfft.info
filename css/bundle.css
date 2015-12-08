@@ -96,5 +96,17 @@ body {
   font-size: 12px;
   padding: 20px;
   line-height: 1.5;
-  font-family: monospace;
+  font-family: sans-serif;
+}
+
+/* HEADER */
+header {
+  background: black;
+  padding: 2%;
+  color: white;
+  transition: background 1s;
+  display: flex;
+}
+header:hover {
+  background: red;
 }

@@ -1,11 +1,13 @@
 // REQUIRES
-var gulp  		= require('gulp'),
-    gutil 		= require('gulp-util'),
-    concat 		= require('gulp-concat'),
-    rename 		= require('gulp-rename'),
-    compass 	= require('gulp-compass'),
-    minifyCss 	= require('gulp-minify-css');
-var browserSync = require('browser-sync').create();
+var gulp         = require('gulp'),
+    gutil        = require('gulp-util'),
+    concat       = require('gulp-concat'),
+    rename       = require('gulp-rename'),
+    compass      = require('gulp-compass'),
+    minifyCss    = require('gulp-minify-css'),
+    sourcemaps   = require('gulp-sourcemaps'),
+    autoprefixer = require('gulp-autoprefixer');
+var browserSync  = require('browser-sync').create();
 
 var vendor = [
 	'src/js/vendor/jquery-2.1.4.min.js',
@@ -16,7 +18,7 @@ var scripts = [
 	'src/js/index.js'
 ];
 
-// LOCALHOST:8080
+// LOCALHOST:3000
 gulp.task('serve', ['sass'], function() {
 
     browserSync.init({
@@ -24,9 +26,9 @@ gulp.task('serve', ['sass'], function() {
         notify: false
     });
 
+    gulp.watch("src/*.html", ['html']);
     gulp.watch("src/sass/*/*.scss", ['sass']);
     gulp.watch("src/js/*.js", ['js']);
-    gulp.watch("www/*.html").on('change', browserSync.reload);
 });
 
 // TASKS
@@ -35,8 +37,13 @@ gulp.task('sass', function() {
         .pipe(compass( {
         	sass: 'src/sass'
         }))
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions']
+        }))
+        .pipe(sourcemaps.init())
         .pipe(minifyCss())
 		.pipe(rename('bundle.min.css'))
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest("www/css"))
         .pipe(browserSync.stream());
 });
@@ -53,5 +60,12 @@ gulp.task('js', function() {
 	browserSync.reload();
 });
 
+gulp.task('html', function() {
+    gulp.src('src/index.html')
+        .pipe(gulp.dest('www/'))
+
+    browserSync.reload();
+});
+
 // DEFAULT
-gulp.task('default', ['sass', 'js', 'serve']);
+gulp.task('default', ['html', 'sass', 'js', 'serve']);

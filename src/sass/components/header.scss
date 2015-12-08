@@ -1,0 +1,13 @@
+/* HEADER */
+header {
+	background: black;
+	padding: 2%;
+	color: white;
+	transition: background 1s;
+	display: flex;
+
+	&:hover {
+		background: red;
+	}
+
+}
