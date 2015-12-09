@@ -5,17 +5,19 @@ var gulp         = require('gulp'),
     rename       = require('gulp-rename'),
     sass         = require('gulp-sass'),
     minifyCss    = require('gulp-minify-css'),
+    uglify       = require('gulp-uglify'),
     sourcemaps   = require('gulp-sourcemaps'),
     autoprefixer = require('gulp-autoprefixer'),
     browserSync  = require('browser-sync').create();
 
 var vendor = [
-	'src/js/vendor/jquery-2.1.4.min.js',
+	// 'src/js/vendor/preloadjs-0.6.1.min.js',
 	'src/js/vendor/*.js'
 ];
 
 var scripts = [
-	'src/js/index.js'
+	'src/js/index.js',
+    'src/js/*.js'
 ];
 
 // LOCALHOST:3000
@@ -52,7 +54,11 @@ gulp.task('js', function() {
 		.pipe(gulp.dest('www/js/'));
 
 	gulp.src(scripts)
-		.pipe(concat('bundle.js'))
+        .pipe(sourcemaps.init())
+        .pipe(concat('bundle.js'))
+        .pipe(uglify())
+        .pipe(rename('bundle.min.js'))
+        .pipe(sourcemaps.write())
 		.pipe(gulp.dest('www/js/'));
 
 	browserSync.reload();
