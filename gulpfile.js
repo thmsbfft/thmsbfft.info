@@ -11,7 +11,7 @@ var gulp         = require('gulp'),
     browserSync  = require('browser-sync').create();
 
 var vendor = [
-	// 'src/js/vendor/preloadjs-0.6.1.min.js',
+	'src/js/vendor/preloadjs-0.6.1.min.js',
 	'src/js/vendor/*.js'
 ];
 
