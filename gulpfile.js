@@ -3,11 +3,11 @@ var gulp         = require('gulp'),
     gutil        = require('gulp-util'),
     concat       = require('gulp-concat'),
     rename       = require('gulp-rename'),
-    compass      = require('gulp-compass'),
+    sass         = require('gulp-sass'),
     minifyCss    = require('gulp-minify-css'),
     sourcemaps   = require('gulp-sourcemaps'),
-    autoprefixer = require('gulp-autoprefixer');
-var browserSync  = require('browser-sync').create();
+    autoprefixer = require('gulp-autoprefixer'),
+    browserSync  = require('browser-sync').create();
 
 var vendor = [
 	'src/js/vendor/jquery-2.1.4.min.js',
@@ -19,7 +19,7 @@ var scripts = [
 ];
 
 // LOCALHOST:3000
-gulp.task('serve', ['sass'], function() {
+gulp.task('serve', function() {
 
     browserSync.init({
         server: "./www",
@@ -33,17 +33,15 @@ gulp.task('serve', ['sass'], function() {
 
 // TASKS
 gulp.task('sass', function() {
-    return gulp.src("src/sass/bundle.scss")
-        .pipe(compass( {
-        	sass: 'src/sass'
-        }))
+    gulp.src("src/sass/bundle.scss")
+        .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
-            browsers: ['last 2 versions']
+            browsers: ['last 4 versions']
         }))
         .pipe(sourcemaps.init())
         .pipe(minifyCss())
 		.pipe(rename('bundle.min.css'))
-        .pipe(sourcemaps.write('.'))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest("www/css"))
         .pipe(browserSync.stream());
 });
