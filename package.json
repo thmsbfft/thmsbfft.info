@@ -21,12 +21,12 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/thmsbfft/tabula-rasa.git"
   },
   "author": "thmsbfft",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": ""
   },
-  "homepage": ""
+  "homepage": "https://github.com/thmsbfft/"
 }
