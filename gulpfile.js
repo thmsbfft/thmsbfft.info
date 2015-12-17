@@ -16,8 +16,9 @@ var vendor = [
 ];
 
 var scripts = [
-	'src/js/index.js',
-    'src/js/*.js'
+    'src/js/loader.js',
+    'src/js/app.js',
+	'src/js/index.js'
 ];
 
 // LOCALHOST:3000
