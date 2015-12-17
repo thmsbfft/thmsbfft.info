@@ -16,14 +16,19 @@
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-}
-
-@-moz-keyframes blink {
-  0% { background: #fff; }
-  50% { background: #000; }
+  text-rendering: optimizeLegibility;
 }
  
-@-webkit-keyframes blink {
+@keyframes blink {
   0% { background: #fff; }
   50% { background: #000; }
+}
+
+@keyframes fade-in {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.fade-in {
+  animation: fade-in 1s 1 ease-out;
 }

@@ -20,11 +20,11 @@ var App = {
 	},
 
 	initialTransitionIn: function() {
-		console.log('initialTransitionIn');
+		this.container.classList.add('fade-in');
 	},
 
 	dispose: function() {
 		this.container.innerHTML = '';
-	}	
+	}
 
 };
