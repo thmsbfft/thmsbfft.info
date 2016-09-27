@@ -1,11 +1,6 @@
-# Tabula Rasa
+# thmsbfft.fr
 
-A basic boilerplate for kickstarting static website projects.
-
-## Good stuff
-
-* [browsersync](https://www.npmjs.com/package/browser-sync)
-* [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)
+Code for thmsbfft.fr.
 
 ## Installation
 

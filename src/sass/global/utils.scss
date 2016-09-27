@@ -32,3 +32,20 @@
 .fade-in {
   animation: fade-in 1s 1 ease-out;
 }
+
+@keyframes float {
+  0% { 
+    transform: translate(0, 0px);
+    opacity: 1;
+  }
+  50% { 
+    transform: translate(0, -150px); 
+    opacity: 0;
+  }
+}
+
+@keyframes rainbow {
+  0% { color: hsl(100,100%,70%); }
+  50% { color: hsl(200,100%,70%); }
+  100% { color: hsl(180,100%,70%); }
+}

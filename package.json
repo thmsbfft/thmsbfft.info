@@ -1,7 +1,7 @@
 {
-  "name": "TABULA-RASA",
+  "name": "thmsbfft.fr",
   "version": "1.0.0",
-  "description": "A clean slate.",
+  "description": "thmsbfft.fr",
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/thmsbfft/tabula-rasa.git"
+    "url": "https://github.com/thmsbfft/thmsbfft.fr.git"
   },
   "author": "thmsbfft",
   "license": "MIT",

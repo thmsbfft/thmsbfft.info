@@ -1,10 +1,45 @@
 body {
-	background: #262626;
+	background: #000;
 	color: #fff;
-	font-family: 'Roboto', sans-serif;
-	font-weight: 400;
-	font-size: 34px;
-	line-height: 40px;
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 300;
+	font-size: 50px;
+	line-height: 1.2;
 	letter-spacing: -1px;
 	@extend .smooth;
+}
+
+main {
+	max-width: 660px;
+	padding-top: 10%;
+	padding-left: 10%;
+}
+
+p {
+	margin-bottom: 45px;
+}
+
+.contact {
+	font-weight: 900;
+    text-transform: uppercase;
+    font-size: 22px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    line-height: 0.5;
+    letter-spacing: -8.5px;
+    margin-right: 15px;
+    span {
+		position: relative;
+		display: inline-block;
+		animation: float 10s infinite ease-in-out, rainbow 2s linear infinite;
+		&:nth-child(1) { animation-delay: .1s }
+		&:nth-child(2) { animation-delay: .2s }
+		&:nth-child(3) { animation-delay: .3s }
+		&:nth-child(4) { animation-delay: .4s }
+		&:nth-child(5) { animation-delay: .5s }
+		&:nth-child(6) { animation-delay: .6s }
+	}
 }
