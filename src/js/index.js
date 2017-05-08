@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-	console.log('👻');
+	console.log('///');
 	App.init(document.getElementsByTagName('main')[0]);
 
 });

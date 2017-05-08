@@ -1,21 +1,21 @@
 var App = {
 
 	container: undefined,
+	graphics: undefined,
 
 	init: function(container) {
 		this.container = container;
-		Loader.init();
 		this.initialLoad();
 	},
 
 	initialLoad: function() {
-		Loader.load([
+		home = new Loader([
 			{id: 'homepage', src: 'data/homepage.html'}
-		], this.loadCompleted.bind(this)); // Binding allows to keep the App scope on callback
+		], this.loadCompleted.bind(this));
 	},
 
-	loadCompleted: function() {
-		this.container.innerHTML = Loader.getContentById('homepage');
+	loadCompleted: function(results) {
+		this.container.innerHTML = results['homepage'];
 		this.initialTransitionIn();
 	},
 
