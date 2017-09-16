@@ -1,32 +1,26 @@
 {
   "name": "thmsbfft.fr",
   "version": "1.0.0",
-  "description": "thmsbfft.fr",
-  "main": "index.js",
-  "dependencies": {},
-  "devDependencies": {
-    "browser-sync": "^2.10.0",
-    "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-concat": "^2.6.0",
-    "gulp-minify-css": "^1.1.6",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.1.0",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "^1.5.1",
-    "gulp-util": "^3.0.5"
-  },
+  "description": "",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/thmsbfft/thmsbfft.fr.git"
+    "url": "git+https://github.com/thmsbfft/thmsbfft.fr.git"
   },
-  "author": "thmsbfft",
+  "author": "Thomas Buffet",
   "license": "MIT",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/thmsbfft/thmsbfft.fr/issues"
   },
-  "homepage": "https://github.com/thmsbfft/"
+  "homepage": "https://github.com/thmsbfft/thmsbfft.fr#readme",
+  "dependencies": {
+    "applescript": "^1.0.0",
+    "express": "^4.15.2",
+    "express-ws": "^3.0.0",
+    "socket.io": "^1.7.4",
+    "ws": "^2.3.1"
+  }
 }
