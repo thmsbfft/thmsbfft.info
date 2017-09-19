@@ -2,9 +2,9 @@
   "name": "thmsbfft.fr",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "site/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "sh start.sh"
   },
   "repository": {
     "type": "git",
@@ -12,15 +12,16 @@
   },
   "author": "Thomas Buffet",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/thmsbfft/thmsbfft.fr/issues"
-  },
-  "homepage": "https://github.com/thmsbfft/thmsbfft.fr#readme",
   "dependencies": {
-    "applescript": "^1.0.0",
-    "express": "^4.15.2",
-    "express-ws": "^3.0.0",
-    "socket.io": "^1.7.4",
-    "ws": "^2.3.1"
+    "choo": "^6.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "node-sass": "^4.5.3",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.7.1"
   }
 }
