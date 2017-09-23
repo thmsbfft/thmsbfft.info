@@ -8,4 +8,4 @@ cp site/index.html public/index.html
 node-sass lib/sass/index.scss public/bundle.css
 
 #compile js
-webpack-dev-server --open
+webpack-dev-server

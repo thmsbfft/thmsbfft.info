@@ -7,6 +7,10 @@ module.exports = function (state, emit) {
   if (state.params.page === undefined) page = '/'
 
   emit('update-nav', page)
+  emit('DOMTitleChange', 't / ' + (page == '/' ? '' : page))
+
+  setInterval(emit, 1000, 'tick')
+  emit('tick')
 
   switch (page) {
     case '/':
@@ -20,13 +24,13 @@ module.exports = function (state, emit) {
   }
 
   return html`
-    <body style="font-family: sans-serif">
+    <main>
       <header>
         ${header(state)}
       </header>
       <section>
         ${page()}
       </section>
-    </body>
+    </main>
   `
 }

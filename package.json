@@ -4,7 +4,8 @@
   "description": "",
   "main": "site/index.js",
   "scripts": {
-    "start": "sh start.sh"
+    "start": "sh start.sh",
+    "watch-css": "watch  'node-sass lib/sass/index.scss public/bundle.css' lib/sass --interval=0.2"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
     "babel-loader": "^7.1.1",
     "babel-preset-es2015": "^6.24.1",
     "node-sass": "^4.5.3",
+    "watch": "^1.0.2",
     "webpack": "^3.0.0",
     "webpack-dev-server": "^2.7.1"
   }
