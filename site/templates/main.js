@@ -9,9 +9,6 @@ module.exports = function (state, emit) {
   emit('update-nav', page)
   emit('DOMTitleChange', 't / ' + (page == '/' ? '' : page))
 
-  setInterval(emit, 1000, 'tick')
-  emit('tick')
-
   switch (page) {
     case '/':
       page = require('../pages/home.js')
@@ -26,7 +23,7 @@ module.exports = function (state, emit) {
   return html`
     <main>
       <header>
-        ${header(state)}
+        ${header(state, emit)}
       </header>
       <section>
         ${page()}
