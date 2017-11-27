@@ -5,7 +5,7 @@
   "main": "site/index.js",
   "scripts": {
     "start": "sh start.sh",
-    "watch-css": "watch  'node-sass lib/sass/index.scss public/bundle.css' lib/sass --interval=0.2"
+    "watch-css": "watch 'node-sass lib/sass/index.scss public/bundle.css' lib/sass --interval=0.2"
   },
   "repository": {
     "type": "git",
