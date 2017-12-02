@@ -16,4 +16,4 @@ var main = require('./templates/main.js')
 app.route('/', main)
 app.route('/:page', main)
 
-app.mount('main')
+app.mount('body')

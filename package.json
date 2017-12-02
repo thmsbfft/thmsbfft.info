@@ -4,8 +4,9 @@
   "description": "",
   "main": "site/index.js",
   "scripts": {
-    "start": "sh start.sh",
-    "watch-css": "watch 'node-sass lib/sass/index.scss public/bundle.css' lib/sass --interval=0.2"
+    "start": "bankai start site/index.js",
+    "build": "bankai build site/index.js /dist/",
+    "inspect": "bankai inspect site/index.js"
   },
   "repository": {
     "type": "git",
@@ -17,13 +18,6 @@
     "choo": "^6.0.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.1",
-    "babel-preset-es2015": "^6.24.1",
-    "node-sass": "^4.5.3",
-    "watch": "^1.0.2",
-    "webpack": "^3.0.0",
-    "webpack-dev-server": "^2.7.1"
+    "bankai": "^9.0.1"
   }
 }

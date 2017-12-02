@@ -1,6 +1,10 @@
 const html = require('choo/html')
 
-var header = require('./header.js')
+// styles
+const body = require('../style/index.js')
+
+// templates
+const header = require('./header.js')
 
 module.exports = function (state, emit) {
   var page = state.params.page
@@ -21,13 +25,13 @@ module.exports = function (state, emit) {
   }
 
   return html`
-    <main>
+    <body class="${body}">
       <header>
         ${header(state, emit)}
       </header>
       <section>
         ${page()}
       </section>
-    </main>
+    </body>
   `
 }
