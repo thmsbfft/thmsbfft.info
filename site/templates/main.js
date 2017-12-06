@@ -11,7 +11,9 @@ module.exports = function (state, emit) {
   if (state.params.page === undefined) page = '/'
 
   emit('update-nav', page)
-  emit('DOMTitleChange', 't / ' + (page == '/' ? '' : page))
+  
+  var title = 't / ' + (page == '/' ? '' : page)
+  if (state.title !== title) emit('DOMTitleChange', 't / ' + (page == '/' ? '' : page))
 
   switch (page) {
     case '/':
