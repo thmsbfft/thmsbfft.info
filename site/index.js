@@ -1,8 +1,6 @@
 var choo = require('choo')
 var app = choo()
 
-// app.use(require('choo-websocket')())
-
 app.use(function (state, emitter) {
   state.pages = [
     {name: 'Homepage', url: '/', active: false},
