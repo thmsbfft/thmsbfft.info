@@ -8,13 +8,12 @@ const cursor = css`
     height: 10px;
     background: pink;
     position: fixed;
-    top: 0;
-    left: 0;
+    transition: all 0.2s linear;
   }
 `
 
 module.exports = function(state, emit) {
-  emit('tock', {x: 8, y: 25})
+  // emit('cursor:moved', {x: 8, y: 25})
 
   var x = state.cursor[0] + '%'
   var y = state.cursor[1] + '%'

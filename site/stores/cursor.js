@@ -1,7 +1,7 @@
 module.exports = function (state, emitter) {
-  state.cursor = [8, 25]
+  state.cursor = [0, 0]
 
-  emitter.on('tock', function(e) {
+  emitter.on('cursor:moved', function(e) {
     console.log('>')
     state.cursor[0] = e.x
     state.cursor[1] = e.y
