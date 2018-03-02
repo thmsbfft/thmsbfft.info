@@ -5,6 +5,7 @@ const body = require('../style/index.js')
 
 // templates
 const header = require('./header.js')
+const cursor = require('./cursor.js')
 
 module.exports = function (state, emit) {
   var page = state.params.page
@@ -34,6 +35,7 @@ module.exports = function (state, emit) {
       <section>
         ${page()}
       </section>
+      ${cursor(state, emit)}
     </body>
   `
 }

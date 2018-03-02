@@ -12,13 +12,13 @@ const clock = css`
 `
 
 module.exports = function(state, emit) {
-  setInterval(emit, 1000, 'tick')
+  // setInterval(emit, 1000, 'tick')
   emit('tick')
   
   return html`
     <nav>
       ${state.pages.map(nav)}
-      <figure class="${clock}">${state.date}</figure>
+      <figure class="${clock}">${state.date} • Last Updated 2018 03 01</figure>
     </nav>
   `
 }
