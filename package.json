@@ -6,7 +6,8 @@
   "scripts": {
     "start": "bankai start site/index.js",
     "build": "bankai build site/index.js /dist/",
-    "inspect": "bankai inspect site/index.js"
+    "inspect": "bankai inspect site/index.js",
+    "serve": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -16,7 +17,8 @@
   "license": "MIT",
   "dependencies": {
     "choo": "^6.0.1",
-    "npm": "^5.7.1"
+    "npm": "^5.7.1",
+    "socket.io": "^2.0.4"
   },
   "devDependencies": {
     "bankai": "^9.0.1"

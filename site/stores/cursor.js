@@ -1,19 +1,25 @@
+const socketio = require('socket.io-client')
+const io = socketio()
+
 module.exports = function (state, emitter) {
   state.cursor = [0, 0]
 
-  emitter.on('DOMContentLoaded', function () {
-    emitter.on('ws:open', () => {
-      console.log('connection established')
-    })
-    emitter.on('ws:message', (data, e) => {
-      console.log(data)
-    })
+  io.on('connect', (data, done) => {
+    console.log('WS: ✔')
   })
 
-  emitter.on('cursor:moved', function(e) {
+  io.on('message', (data) => {
     console.log('>')
-    state.cursor[0] = e.x
-    state.cursor[1] = e.y
+    
+    state.cursor[0] = data.x
+    state.cursor[1] = data.y
+    console.log(data)
+
     emitter.emit('render')
+  })
+
+  io.emit('message', {
+    x: 50,
+    y: 50
   })
 }

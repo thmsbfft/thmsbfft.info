@@ -5,6 +5,12 @@ const css = require('sheetify')
 var nav = require('./nav.js')
 
 // styles
+const style = css`
+  :host {
+    margin-bottom: 1em;
+  }
+`
+
 const clock = css`
   :host {
     float: right;
@@ -17,7 +23,7 @@ module.exports = function(state, emit) {
   emit('tick')
   
   return html`
-    <nav>
+    <nav class="${style}">
       ${state.pages.map(nav)}
       <figure class="${clock}">${state.date}</figure>
     </nav>
