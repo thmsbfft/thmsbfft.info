@@ -13,13 +13,7 @@ module.exports = function (state, emitter) {
     
     state.cursor[0] = data.x
     state.cursor[1] = data.y
-    console.log(data)
 
     emitter.emit('render')
-  })
-
-  io.emit('message', {
-    x: 50,
-    y: 50
   })
 }

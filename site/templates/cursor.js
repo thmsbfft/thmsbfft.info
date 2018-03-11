@@ -8,7 +8,7 @@ const cursor = css`
     height: 10px;
     background: pink;
     position: fixed;
-    transition: all 0.2s linear;
+    transition: all 0.15s linear;
   }
 `
 
