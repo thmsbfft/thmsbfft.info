@@ -30,6 +30,11 @@ io.on('connect', (socket) => {
     socket.broadcast.emit('message', data)
   })
 
+  socket.on('status', (data) => {
+    console.log(data)
+    socket.broadcast.emit('status', data)
+  })
+
   // socket.emit('message', 'hi from server')
   // socket.broadcast.emit('message', 'hi everyone')
 })
