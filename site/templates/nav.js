@@ -5,11 +5,24 @@ const style = css`
   :host {
     margin-right: 50px;
   }
+
+  :host::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 10px;
+    margin-right: 6px;
+    position: relative;
+    top: -1px;
+    background-color: white;
+    border: 1px solid black;
+  }
 `
 
 const active = css`
-  :host {
-    opacity: 0.5;
+  :host::before {
+    background-color: black;
   }
 `
 

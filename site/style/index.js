@@ -8,6 +8,8 @@ const body = css`
     -moz-osx-font-smoothing: grayscale;
     background-color: white;
     padding: 5vw;
+    font-size: 135%;
+    line-height: 1.35;
   }
 
   a {

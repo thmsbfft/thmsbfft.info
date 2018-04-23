@@ -20,8 +20,11 @@ module.exports = function (state, emit) {
     case '/':
       page = require('../pages/home.js')
       break
-    case 'i':
+    case 'info':
       page = require('../pages/info.js')
+      break
+    case 'log':
+      page = require('../pages/log.js')
       break
     default:
       page = require('../pages/404.js')
@@ -29,12 +32,8 @@ module.exports = function (state, emit) {
 
   return html`
     <body class="${body}">
-      <header>
-        ${header(state, emit)}
-      </header>
-      <section>
-        ${page()}
-      </section>
+      ${header(state, emit)}
+      ${page()}
       ${cursor(state, emit)}
     </body>
   `

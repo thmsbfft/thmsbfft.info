@@ -4,9 +4,10 @@ const css = require('sheetify')
 // styles
 const cursor = css`
   :host {
-    width: 10px;
-    height: 10px;
-    background: pink;
+    width: 22px;
+    height: 22px;
+    background: url('/assets/cursor@2x.png');
+    background-size: 100%;
     position: fixed;
     transition: all 0.15s linear;
   }

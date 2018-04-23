@@ -7,20 +7,22 @@ var nav = require('./nav.js')
 // styles
 const style = css`
   :host {
-    margin-bottom: 1em;
+    margin-bottom: 5vw;
+    text-transform: lowercase;
+    display: flex;
+    justify-content: space-between;
   }
 `
 
-const clock = css`
-  :host {
-    float: right;
+const links = css`
+  :host > li {
+    display: inline-block;
   }
 `
 
 const status = css`
   :host {
-    float: right;
-    margin-right: 1em;
+    margin-right: 2em;
   }
 
   :host::before {
@@ -29,25 +31,25 @@ const status = css`
     width: 8px;
     height: 8px;
     border-radius: 10px;
-    margin-right: 5px;
+    margin-right: 6px;
     position: relative;
     top: -1px;
-    background-color: grey;
+    background-color: lightgrey;
+    border: 1px solid lightgrey;
   }
 `
 
 module.exports = function(state, emit) {
-  // setInterval(emit, 1000, 'tick')
   setTimeout(emit, 1000, 'tick')
   emit('tick')
-  
-  // ${state.status}
 
   return html`
-    <nav class="${style}">
-      ${state.pages.map(nav)}
-      <figure class="${clock}">${state.date}</figure>
-      <figure class="${status}">${state.status}</figure>
-    </nav>
+    <header class="${style}">
+      <nav class="${links}">${state.pages.map(nav)}</nav>
+      <time>
+        <span class="${status}">${state.status}</span>
+        ${state.date}
+      </time>
+    </header>
   `
 }
