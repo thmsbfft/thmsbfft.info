@@ -7,14 +7,23 @@ const body = css`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: white;
-    padding: 5vw;
-    font-size: 115%;
-    line-height: 1.35;
+    padding: 2em;
+    font-size: 1.75em;
+    line-height: 1.11;
+    letter-spacing: -0.5px;
   }
 
   a {
     color: black;
     text-decoration: none;
+  }
+
+  p strong {
+    font-weight: bold;
+  }
+
+  p em {
+    font-style: italic;
   }
 `
 

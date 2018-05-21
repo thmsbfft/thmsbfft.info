@@ -3,9 +3,9 @@ var app = choo()
 
 app.use(function (state, emitter) {
   state.pages = [
-    {name: 'thomas buffet', url: '/', active: false},
-    {name: 'info', url: 'info', active: false},
-    {name: 'log', url: 'log', active: false}
+    {name: 'Home', url: '/', active: false},
+    {name: 'Info', url: 'info', active: false},
+    {name: '2015—2018', url: 'log', active: false}
   ]
 })
 

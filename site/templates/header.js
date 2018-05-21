@@ -7,8 +7,8 @@ var nav = require('./nav.js')
 // styles
 const style = css`
   :host {
-    margin-bottom: 5vw;
-    text-transform: lowercase;
+    margin-bottom: 4em;
+    text-transform: none;
     display: flex;
     justify-content: space-between;
   }
@@ -28,12 +28,12 @@ const status = css`
   :host::before {
     content: '';
     display: inline-block;
-    width: 8px;
-    height: 8px;
-    border-radius: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
     margin-right: 6px;
     position: relative;
-    top: -1px;
+    top: 1px;
     background-color: lightgrey;
     border: 1px solid lightgrey;
   }

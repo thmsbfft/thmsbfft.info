@@ -2,7 +2,7 @@ const socketio = require('socket.io-client')
 const io = socketio()
 
 module.exports = function (state, emitter) {
-  state.cursor = [0, 0]
+  state.cursor = [50, 50]
 
   io.on('connect', (data, done) => {
     console.log('WS: ✔')

@@ -9,14 +9,14 @@ const style = css`
   :host::before {
     content: '';
     display: inline-block;
-    width: 8px;
-    height: 8px;
-    border-radius: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
     margin-right: 6px;
     position: relative;
-    top: -1px;
-    background-color: white;
-    border: 1px solid black;
+    top: 1px;
+    background-color: lightgrey;
+    transition: background-color 0.2s;
   }
 `
 
