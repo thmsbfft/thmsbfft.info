@@ -10,7 +10,7 @@ const style = css`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-items: space-between;
+    justify-content: center;
   }
 ` 
 

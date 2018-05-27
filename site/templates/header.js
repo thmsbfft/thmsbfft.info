@@ -12,11 +12,41 @@ const style = css`
     display: flex;
     justify-content: space-between;
   }
+
+  @media screen and (max-width: 850px) {
+    :host {
+      flex-direction: column;
+    }
+  }
 `
 
 const links = css`
   :host > li {
     display: inline-block;
+  }
+
+  @media screen and (max-width: 850px) {
+    :host {
+      flex-basis: 100%;
+      order: 2;
+    }
+  }
+`
+
+const right = css`
+  @media screen and (max-width: 850px) {
+    :host {
+      flex-basis: 100%;
+      order: 1;
+      margin-bottom: 1em;
+      background-color: #EDEDED;
+      border-radius: 4px;
+      text-align: center;
+      padding: 3px 10px 2px 10px;
+      position: fixed;
+      bottom: 10px;
+      z-index: 99;
+    }
   }
 `
 
@@ -28,9 +58,9 @@ const status = css`
   :host::before {
     content: '';
     display: inline-block;
-    width: 8px;
-    height: 8px;
-    border-radius: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 6px;
     margin-right: 6px;
     position: relative;
     top: -2px;
@@ -58,10 +88,10 @@ module.exports = function(state, emit) {
   return html`
     <header class="${style}">
       <nav class="${links}">${state.pages.map(nav)}</nav>
-      <time>
+      <aside class="${right}">
         <span class="${status} ${color}">${state.status}</span>
-        ${state.date}
-      </time>
+        <time>${state.date}</time>
+      </aside>
     </header>
   `
 }

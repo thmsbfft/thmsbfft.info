@@ -24,6 +24,23 @@ const style = css`
   :host img:hover + legend {
     opacity: 1;
   }
+
+  @media screen and (max-width: 1280px) {
+    :host {
+      flex-basis: 45%;
+    }
+  }
+
+  @media screen and (max-width: 850px) {
+    :host {
+      flex-basis: 100%;
+      margin: 1em 0.5em;
+    }
+
+    :host img {
+      max-height: 600px;
+    }
+  }
 `
 
 const legend = css`
@@ -50,22 +67,21 @@ const legend = css`
   :host:hover {
     opacity: 1;
   }
+
+  @media screen and (max-width: 850px) {
+    :host {
+      display: none;
+    }
+  }
 `
 
 const placeholder = css`
-  :host {
-
-  }
-
   :host img {
     opacity: 0.1;
   }
 `
 
 module.exports = function (image) {
-  console.log('Asserting which image to render...')
-
-  // if (!image.loaded) 
   if (!image.loaded) return html`
     <figure class="${style} ${placeholder}">
       <img src="${image.b64}">

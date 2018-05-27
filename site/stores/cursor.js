@@ -14,6 +14,7 @@ module.exports = function (state, emitter) {
     state.cursor[0] = data.x
     state.cursor[1] = data.y
 
+    if (state.params.page === 'log') return
     emitter.emit('render')
   })
 }
