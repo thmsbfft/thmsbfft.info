@@ -9,12 +9,12 @@ const style = css`
   :host::before {
     content: '';
     display: inline-block;
-    width: 20px;
-    height: 20px;
-    border-radius: 20px;
+    width: 8px;
+    height: 8px;
+    border-radius: 8px;
     margin-right: 6px;
     position: relative;
-    top: 1px;
+    top: -2px;
     background-color: lightgrey;
     transition: background-color 0.2s;
   }
@@ -22,7 +22,7 @@ const style = css`
 
 const active = css`
   :host::before {
-    background-color: black;
+    background-color: blue;
   }
 `
 

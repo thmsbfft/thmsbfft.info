@@ -9,7 +9,7 @@ const path = require('path')
 const socketio = require('socket.io')
 
 const compiler = bankai(path.join(__dirname, 'site', 'index.js'), {
-  quiet: true,
+  quiet: false,
   watch: true
 })
 
@@ -34,7 +34,4 @@ io.on('connect', (socket) => {
     console.log(data)
     socket.broadcast.emit('status', data)
   })
-
-  // socket.emit('message', 'hi from server')
-  // socket.broadcast.emit('message', 'hi everyone')
 })

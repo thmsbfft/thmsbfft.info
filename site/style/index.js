@@ -8,14 +8,23 @@ const body = css`
     -moz-osx-font-smoothing: grayscale;
     background-color: white;
     padding: 2em;
-    font-size: 1.75em;
-    line-height: 1.11;
-    letter-spacing: -0.5px;
+    font-size: 1.20em;
+    line-height: 1.4;
+    letter-spacing: 0px;
   }
 
-  a {
-    color: black;
+  a, a:visited {
+    color: blue;
     text-decoration: none;
+  }
+
+  a:hover {
+  }
+
+  :host p {
+    margin-bottom: 3em;
+    max-width: 800px;
+    text-indent: 2em;
   }
 
   p strong {

@@ -1,7 +1,13 @@
 const html = require('choo/html')
+const css = require('sheetify')
 
 // styles
 const body = require('../style/index.js')
+const black = css`
+  :host {
+
+  }
+`
 
 // templates
 const header = require('./header.js')
@@ -20,9 +26,6 @@ module.exports = function (state, emit) {
     case '/':
       page = require('../pages/home.js')
       break
-    case 'info':
-      page = require('../pages/info.js')
-      break
     case 'log':
       page = require('../pages/log.js')
       break
@@ -33,8 +36,8 @@ module.exports = function (state, emit) {
   return html`
     <body class="${body}">
       ${header(state, emit)}
-      ${page()}
+      ${page(state, emit)}
       ${cursor(state, emit)}
-    </body>
-  `
+    </body>`
+
 }

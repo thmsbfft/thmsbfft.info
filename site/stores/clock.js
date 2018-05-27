@@ -1,14 +1,14 @@
 const moment = require('moment-timezone')
 
-function pad (n) {
-  if (n < 10) return '0' + n
-  else return n
+module.exports = function (state, emitter) {
+  state.date = moment().tz('America/Los_Angeles').format('h:mm z')
+  setInterval(tick, 1000, state, emitter)
 }
 
-module.exports = function (state, emitter) {
+function tick (state, emitter) {
+  var now = moment().tz('America/Los_Angeles').format('h:mm z')
+  if (now == state.date) return
 
-  emitter.on('tick', function() {
-    state.date = moment().tz('America/Los_Angeles').format('h:mm z')
-    emitter.emit('render')
-  })
+  state.date = now
+  emitter.emit('render')
 }
