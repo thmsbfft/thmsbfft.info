@@ -2,27 +2,18 @@ const html = require('choo/html')
 const css = require('sheetify')
 
 const style = css`
-  :host {
+  :host, :host:active, :host:visited {
     margin-right: 50px;
   }
 
-  :host::before {
-    content: '';
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    border-radius: 8px;
-    margin-right: 6px;
-    position: relative;
-    top: -2px;
-    background-color: lightgrey;
-    transition: background-color 0.2s;
+  :host:hover {
+    text-decoration: none!important;
   }
 `
 
 const active = css`
-  :host::before {
-    background-color: blue;
+  :host {
+    opacity: 0.5;
   }
 `
 

@@ -8,17 +8,24 @@ const body = css`
     -moz-osx-font-smoothing: grayscale;
     background-color: white;
     padding: 2em;
-    font-size: 1.20em;
+    font-size: 1.30em;
     line-height: 1.4;
     letter-spacing: 0px;
   }
 
-  a, a:visited {
-    color: blue;
+  :host a, :host a:visited {
+    color: black;
     text-decoration: none;
+    transition: opacity 0.2s;
   }
 
-  a:hover {
+  :host a:hover {
+    text-decoration: underline;
+  }
+
+  :host a:active {
+    scale: 0.9;
+    opacity: 0.5;
   }
 
   :host p {
@@ -33,6 +40,13 @@ const body = css`
 
   p em {
     font-style: italic;
+  }
+
+  hr {
+    height: 1px;
+    border: none;
+    background-color: black;
+    margin-bottom: 3em;
   }
 `
 

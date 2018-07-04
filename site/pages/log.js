@@ -2,8 +2,7 @@ const html = require('choo/html')
 const css = require('sheetify')
 
 // templates
-const image = require('../templates/image.js')
-const placeholder = require('../templates/placeholder.js')
+// const placeholder = require('../templates/placeholder.js')
 
 const style = css`
   :host {
@@ -15,9 +14,14 @@ const style = css`
 ` 
 
 module.exports = function (state, emit) {
+
   return html`
     <section class="${style}">
-      ${state.manifest.images.map(image)}
+      ${state.manifest.images.map(r)}
     </section>
   `
+}
+
+function r (image) {
+  return image.img.render()
 }

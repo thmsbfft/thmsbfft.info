@@ -1,23 +1,11 @@
 const path = require('path')
-const load = require('load-asset')
+const IMG = require('../templates/lazy-image.js')
 
 module.exports = function (state, emitter) {
+  // create image components from the manifest
 
   state.manifest = require('../assets/gallery/manifest.json')
-  start(state, emitter)
-  
-}
-
-async function start (state, emitter) {
-    
-  console.log('Loading images...')
-  for (var i = 0; i < state.manifest.images.length; i++) {
-    console.log('Loading image ' + i)
-    state.manifest.images[i].html = await load(path.join('assets', 'gallery', state.manifest.images[i].file))
-    state.manifest.images[i].loaded = true
-    console.log('Loaded, rendering...')
-    emitter.emit('render')
+  for (var i = state.manifest.images.length - 1; i >= 0; i--) {
+    state.manifest.images[i].img = new IMG(state.manifest.images[i])
   }
-
-  console.log('All done.')
 }
