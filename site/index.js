@@ -9,7 +9,6 @@ app.use(function (state, emitter) {
   ]
 })
 
-app.use(require('./stores/clock.js'))
 app.use(require('./stores/images.js'))
 app.use(require('./stores/cursor.js'))
 app.use(require('./stores/status.js'))

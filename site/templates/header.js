@@ -2,7 +2,9 @@ const html = require('choo/html')
 const css = require('sheetify')
 
 // templates
-var nav = require('./nav.js')
+const nav = require('./nav.js')
+const Clock = require('./clock.js')
+const clock = new Clock()
 
 // styles
 const style = css`
@@ -90,7 +92,7 @@ module.exports = function(state, emit) {
       <nav class="${links}">${state.pages.map(nav)}</nav>
       <aside class="${right}">
         <span class="${status} ${color}">${state.status}</span>
-        <time>${state.date}</time>
+        ${clock.render()}
       </aside>
     </header>
   `
