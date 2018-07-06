@@ -1,9 +1,6 @@
 const html = require('choo/html')
 const css = require('sheetify')
 
-// templates
-// const placeholder = require('../templates/placeholder.js')
-
 const style = css`
   :host {
     display: flex;

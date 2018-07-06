@@ -1,5 +1,8 @@
 const html = require('choo/html')
 const css = require('sheetify')
+const Nanocomponent = require('nanocomponent')
+const socketio = require('socket.io-client')
+const io = socketio()
 
 // styles
 const cursor = css`
@@ -14,15 +17,46 @@ const cursor = css`
   }
 `
 
-module.exports = function(state, emit) {
+module.exports = class Cursor extends Nanocomponent {
 
-  var x = state.cursor[0] + '%'
-  var y = state.cursor[1] + '%'
+  constructor () {
+    super()
+    this.cursor = [50, 50]
 
-  if (state.status == 'AFK') return
-  if (state.params.page === 'log') return
+    io.on('connect', (data, done) => {
+      console.log('WS OK')
+    })
 
-  return html`
-    <figure class="${cursor}" style="left: ${x}; top: ${y}"></figure>
-  `
+    io.on('message', (data) => {
+      console.log('>')
+      
+      this.cursor[0] = data.x
+      this.cursor[1] = data.y
+      this.update()
+    })
+  }
+
+  load (el)  {
+    el.style.opacity = 0
+  }
+
+  update (status) {
+    if (status === 'AFK') {
+      this.element.style.opacity = 0
+      return false
+    }
+
+    this.element.style.opacity = 0.5
+    this.element.style.left = this.cursor[0] + '%'
+    this.element.style.top = this.cursor[1] + '%'
+
+    return false
+  }
+
+  createElement() {
+    return html`
+      <figure class="${cursor}" style="left: ${this.cursor[0] + '%'}; top: ${this.cursor[1] + '%'}"></figure>
+    `
+  }
+
 }
