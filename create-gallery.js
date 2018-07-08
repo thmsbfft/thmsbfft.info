@@ -3,6 +3,7 @@ const path = require('path')
 const execSync = require('child_process').execSync
 const walk = require('powerwalker')
 const sizeOf = require('image-size')
+const uid = require('uid')
 
 let manifest = {}
 let images = []
@@ -29,6 +30,7 @@ async function start () {
       var entry = path.parse(files[i])
 
       manifest.images.push({
+        "id": uid(),
         "file": entry.base,
         "dimensions": [dimensions.width, dimensions.height],
         "b64": b64, 
@@ -38,8 +40,6 @@ async function start () {
     }
   }
 
-  // console.log(images)
-  // console.log(manifest)
   save()
 }
 
@@ -54,9 +54,6 @@ function save () {
 }
 
 function placeholder (w, h) {
-  // w = Math.round(w*0.1)
-  // h = Math.round(h*0.1)
-
   const cmd = `echo 'data:image/gif;base64,'"$(convert -size ${w}x${h} xc:black gif:- | base64)"`
   return execSync(cmd).toString().trim()
 }

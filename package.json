@@ -28,6 +28,7 @@
   "devDependencies": {
     "bankai": "^9.0.1",
     "image-size": "^0.6.2",
-    "powerwalker": "^0.1.0"
+    "powerwalker": "^0.1.0",
+    "uid": "0.0.2"
   }
 }

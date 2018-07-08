@@ -11,6 +11,10 @@ const style = css`
     position: relative;
   }
 
+  :host a {
+    cursor: zoom-in;
+  }
+
   :host img {
     display: block;
     margin: auto;
@@ -29,8 +33,8 @@ const style = css`
   }
 
   @keyframes fade-in {
-    0%   { opacity: 0; transform: translateY(10px); }
-    100% { opacity: 1; transform: translateY(0px); }
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
   }
 
   @media screen and (max-width: 1280px) {
@@ -102,7 +106,8 @@ module.exports = class LazyImage extends MonoLazy {
 
   constructor(props) {
     super()
-    this.src = path.join('assets', 'gallery', props.file)
+    this.id = props.id
+    this.src = path.join('/assets', 'gallery', props.file)
     this.dimensions = props.dimensions
     this.b64 = props.b64
     this.notes = props.notes
@@ -111,11 +116,11 @@ module.exports = class LazyImage extends MonoLazy {
   onEnter() {
     if (this.loaded) return
     
-    var loader = new Image()
-    loader.onload = () => this.onImageLoad()
-    loader.src = this.src
+    this.loader = new Image()
+    this.loader.onload = () => this.onImageLoad()
+    this.loader.src = this.src
 
-    if(loader.complete) {
+    if(this.loader.complete) {
       this.onImageLoad()
     }
   }
@@ -131,15 +136,16 @@ module.exports = class LazyImage extends MonoLazy {
     return true
   }
 
-  createElement() {
-
+  createElement(param) {
     if(this.loaded) {
       return html`
-        <figure class="${style} ${fadeIn}">
-          <img src="${this.src}">
-          <legend class="${legend}">
-            <p>${this.notes}</p>
-          </legend>
+        <figure class="${style}">
+          <a href="/i/${this.id}">
+            <img src="${this.src}">
+            <legend class="${legend}">
+              <p>${this.notes}</p>
+            </legend>
+          </a>
         </figure>
       `
     }
