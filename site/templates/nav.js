@@ -4,6 +4,7 @@ const css = require('sheetify')
 const style = css`
   :host, :host:active, :host:visited {
     margin-right: 50px;
+    padding-bottom: 4px;
   }
 
   :host:hover {
@@ -13,7 +14,8 @@ const style = css`
 
 const active = css`
   :host {
-    opacity: 0.5;
+    opacity: 1;
+    border-bottom: 2px solid lightgrey;
   }
 `
 

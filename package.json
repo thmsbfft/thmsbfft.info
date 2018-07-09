@@ -7,8 +7,7 @@
     "start": "bankai start site/index.js",
     "build": "bankai build site/index.js /dist/",
     "inspect": "bankai inspect site/index.js",
-    "serve": "node server.js",
-    "test": "standard --fix"
+    "serve": "node server.js"
   },
   "repository": {
     "type": "git",
