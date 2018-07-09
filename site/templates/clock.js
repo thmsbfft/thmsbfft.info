@@ -12,7 +12,7 @@ module.exports = class Clock extends Nanocomponent {
 
   update () {
     var now = moment().tz('America/Los_Angeles').format('h:mm z')
-    if (now !== this.time) {
+    if (now !== this.time && this.element) {
       this.time = now
       this.element.innerText = this.time
     }

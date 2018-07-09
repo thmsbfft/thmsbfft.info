@@ -104,13 +104,14 @@ const legend = css`
 
 module.exports = class LazyImage extends MonoLazy {
 
-  constructor(props) {
+  constructor(props, onClick) {
     super()
     this.id = props.id
     this.src = path.join('/assets', 'gallery', props.file)
     this.dimensions = props.dimensions
     this.b64 = props.b64
     this.notes = props.notes
+    this.onClick = onClick
   }
 
   onEnter() {
@@ -140,7 +141,7 @@ module.exports = class LazyImage extends MonoLazy {
     if(this.loaded) {
       return html`
         <figure class="${style}">
-          <a href="/i/${this.id}">
+          <a href="/i/${this.id}" onclick="${this.onClick}">
             <img src="${this.src}">
             <legend class="${legend}">
               <p>${this.notes}</p>

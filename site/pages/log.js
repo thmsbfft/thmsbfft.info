@@ -1,24 +1,11 @@
 const html = require('choo/html')
-const css = require('sheetify')
-
-const style = css`
-  :host {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-` 
+const Gallery = require('../templates/gallery.js')
+const gallery = new Gallery()
 
 module.exports = function (state, emit) {
-
   return html`
-    <section class="${style}">
-      ${state.manifest.images.map(r)}
+    <section>
+      ${gallery.render(state.manifest.images, state.scrollY)}
     </section>
   `
-}
-
-function r (image) {
-  return image.img.render()
 }

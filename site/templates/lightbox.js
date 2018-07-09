@@ -22,15 +22,12 @@ const style = css`
 `
 
 module.exports = function (state, emit) {
-
   // get image from manifest
   let image = state.manifest.images.filter( (img) => {
     return img.id === state.params.image
   })[0]
 
   emit('DOMTitleChange', 't / ' + image.file)
-  console.log(image.file)
-  // console.log(state.manifest.images)
 
   return html`
     <body class="${style}">
@@ -39,5 +36,4 @@ module.exports = function (state, emit) {
       </figure>
     </body>
   `
-
 }
