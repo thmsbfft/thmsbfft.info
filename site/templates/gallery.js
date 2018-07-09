@@ -21,6 +21,7 @@ module.exports = class Gallery extends Nanocomponent {
     if(this.scrollY) {
       console.log('Restoring scroll to:', this.scrollY)
       window.scrollTo(0, this.scrollY)
+      this.scrollY = null
     }
   }
 
@@ -45,4 +46,5 @@ module.exports = class Gallery extends Nanocomponent {
   renderImages(image) {
     return image.img.render()
   }
+  
 }

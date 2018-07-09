@@ -10,4 +10,8 @@ module.exports = function (state, emitter) {
       state.scrollY = window.scrollY
     })
   }
+  emitter.on('navigate', () => {
+    // reset when navigating to home
+    if (state.href == '') state.scrollY = null
+  })
 }
