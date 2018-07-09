@@ -4,8 +4,8 @@ var app = choo()
 
 app.use(function (state, emitter) {
   state.pages = [
-    {name: 'Thomas', url: '/', active: false},
-    {name: 'Log', url: '/log', active: false}
+    {name: 'Thomas', url: '', active: false},
+    {name: 'Log', url: 'log', active: false}
   ]
 })
 

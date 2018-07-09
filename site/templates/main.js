@@ -16,7 +16,7 @@ const cursor = new Cursor()
 
 module.exports = function (state, emit) {
   var page = state.params.page
-  if (state.params.page === undefined) page = '/'
+  if (state.params.page === undefined) page = ''
 
   emit('update-nav', page)
   
@@ -24,7 +24,7 @@ module.exports = function (state, emit) {
   if (state.title !== title) emit('DOMTitleChange', 't / ' + (page == '/' ? '' : page))
 
   switch (page) {
-    case '/':
+    case '':
       page = require('../pages/home.js')
       break
     case 'log':

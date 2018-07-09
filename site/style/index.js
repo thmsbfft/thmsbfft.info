@@ -1,4 +1,4 @@
-const reset = require('./reset.js').attach()
+require('./reset.js').attach()
 const css = require('sheetify')
 
 const body = css`

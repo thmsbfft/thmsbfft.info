@@ -35,7 +35,6 @@ module.exports = function (state, emit) {
   return html`
     <body class="${style}">
       <figure onclick="${() => history.go(-1)}">
-      hi
         <img src="${image.img.src}">
       </figure>
     </body>
