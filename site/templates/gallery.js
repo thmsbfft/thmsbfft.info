@@ -2,6 +2,8 @@ const Nanocomponent = require('nanocomponent')
 const css = require('sheetify')
 const html = require('choo/html')
 
+const LazyImage = require('../templates/lazy-image.js')
+
 const style = css`
   :host {
     display: flex;
@@ -18,6 +20,7 @@ module.exports = class Gallery extends Nanocomponent {
   }
 
   load () {
+    console.log('Gallery height:', this.element.offsetHeight)
     if(this.scrollY) {
       console.log('Restoring scroll to:', this.scrollY)
       window.scrollTo(0, this.scrollY)
@@ -29,22 +32,21 @@ module.exports = class Gallery extends Nanocomponent {
     if(this.scrollY) {
       console.log('Restoring scroll to:', this.scrollY)
       window.scrollTo(0, this.scrollY)
+      this.scrollY = null
     }
-    return true
+    return false
   }
 
-  createElement(images, scrollY) {
-    this.scrollY = scrollY
-    this.images = images
+  createElement (state) {
+    this.scrollY = state.scrollY
+
     return html`
       <section class="${style}">
-        ${this.images.map(this.renderImages)}
+        ${state.manifest.images.map(image => {
+          // console.log(image)
+          return state.cache(LazyImage, image.id).render(image)
+        })}
       </div>
     `
   }
-
-  renderImages(image) {
-    return image.img.render()
-  }
-  
 }

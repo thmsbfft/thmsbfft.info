@@ -1,13 +1,16 @@
 const html = require('choo/html')
 const css = require('sheetify')
 
+const Cursor = require('../templates/cursor.js')
+const cursor = new Cursor()
+
 const style = css`
   :host {
 
   }
 `
 
-module.exports = function () {
+module.exports = function (state, emit) {
   return html`
     <section class="${style}">
       <p>
@@ -24,6 +27,7 @@ module.exports = function () {
         <a href="https://github.com/thmsbfft/" target="_blank">Github</a>,
         <a href="https://www.are.na/thmsbfft/index" target="_blank">Arena</a>
       </p>
+      ${cursor.render(state.status)}
     </section>
   `
 }

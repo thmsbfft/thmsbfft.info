@@ -11,8 +11,6 @@ const black = css`
 
 // templates
 const header = require('./header.js')
-const Cursor = require('./cursor.js')
-const cursor = new Cursor()
 
 module.exports = function (state, emit) {
   var page = state.params.page
@@ -38,7 +36,6 @@ module.exports = function (state, emit) {
     <body class="${body}">
       ${header(state, emit)}
       ${page(state, emit)}
-      ${cursor.render(state.status)}
     </body>`
 
 }

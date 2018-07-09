@@ -104,17 +104,15 @@ const legend = css`
 
 module.exports = class LazyImage extends MonoLazy {
 
-  constructor(props, onClick) {
-    super()
-    this.id = props.id
-    this.src = path.join('/assets', 'gallery', props.file)
-    this.dimensions = props.dimensions
-    this.b64 = props.b64
-    this.notes = props.notes
-    this.onClick = onClick
+  constructor (id, state, emit) {
+    super(`LazyImage-${id}`)
+    // state = state || {components:{}}
+    // this.local = state.components[`LazyImage-${id}`] = {}
+    // var props = state.manifest.images[0]
+    
   }
 
-  onEnter() {
+  onEnter () {
     if (this.loaded) return
     
     this.loader = new Image()
@@ -126,18 +124,25 @@ module.exports = class LazyImage extends MonoLazy {
     }
   }
 
-  onImageLoad() {
+  onImageLoad () {
     if(this.loaded) return
 
     this.loaded = true
     this.rerender()
   }
 
-  update() {
+  update () {
     return true
   }
 
-  createElement(param) {
+  createElement (props) {
+    this.id = props.id
+    this.src = path.join('/assets', 'gallery', props.file)
+    this.dimensions = props.dimensions
+    this.b64 = props.b64
+    this.notes = props.notes
+    this.onClick = null
+
     if(this.loaded) {
       return html`
         <figure class="${style}">
