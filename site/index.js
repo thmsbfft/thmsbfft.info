@@ -1,7 +1,6 @@
 require('babel-polyfill')
 var choo = require('choo')
 var app = choo()
-app.use(require('choo-component-preview')())
 
 app.use(function (state, emitter) {
   state.pages = [

@@ -14,7 +14,6 @@ const style = css`
 ` 
 
 module.exports = class Gallery extends Nanocomponent {
-
   constructor () {
     super()
   }
@@ -27,7 +26,7 @@ module.exports = class Gallery extends Nanocomponent {
       this.scrollY = null
     }
   }
-
+  
   update () {
     if(this.scrollY) {
       console.log('Restoring scroll to:', this.scrollY)
@@ -39,12 +38,11 @@ module.exports = class Gallery extends Nanocomponent {
 
   createElement (state) {
     this.scrollY = state.scrollY
-
+    console.log('Rendering Gallery')
     return html`
       <section class="${style}">
         ${state.manifest.images.map(image => {
-          // console.log(image)
-          return state.cache(LazyImage, image.id).render(image)
+          return state.cache(LazyImage, image.id).render(image, state)
         })}
       </div>
     `

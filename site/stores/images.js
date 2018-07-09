@@ -3,15 +3,9 @@ const IMG = require('../templates/lazy-image.js')
 
 module.exports = function (state, emitter) {
   state.manifest = require('../assets/gallery/manifest.json')
-  // for (var i = state.manifest.images.length - 1; i >= 0; i--) {
-  //   state.manifest.images[i].img = new IMG(state.manifest.images[i], () => {
-  //     // onClick
-  //     console.log('Saving scroll:', window.scrollY)
-  //     state.scrollY = window.scrollY
-  //   })
-  // }
-  // emitter.on('navigate', () => {
-  //   // reset when navigating to home
-  //   if (state.href == '') state.scrollY = null
-  // })
+
+  emitter.on('navigate', () => {
+    // reset scrollY when navigating home
+    if (state.href == '') state.scrollY = null
+  })
 }

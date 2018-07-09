@@ -1,5 +1,6 @@
 const html = require('choo/html')
 const css = require('sheetify')
+const path = require('path')
 
 const style = css`
   :host {
@@ -27,12 +28,13 @@ module.exports = function (state, emit) {
     return img.id === state.params.image
   })[0]
 
+  var src = path.join('/assets', 'gallery', image.file)
   emit('DOMTitleChange', 't / ' + image.file)
 
   return html`
     <body class="${style}">
       <figure onclick="${() => history.go(-1)}">
-        <img src="${image.img.src}">
+        <img src="${src}">
       </figure>
     </body>
   `
