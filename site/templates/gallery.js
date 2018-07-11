@@ -68,13 +68,25 @@ module.exports = class Gallery extends Nanocomponent {
     return false
   }
 
-  open (image) {
+  open (e, image) {
     console.log('Opening image', image)
+    console.log(e.target.naturalWidth, 'Coords:', e.target.getBoundingClientRect())
+    var bounds = e.target.getBoundingClientRect()
+    var width = e.target.getBoundingClientRect().width
+
+    var scaleX = width / e.target.naturalWidth
+
+    var animation = css`
+      :host {
+        position: fixed;
+      }
+    `
+
     console.log(this)
     var lightbox = html`
       <div class="${overlay} ${fadeIn}">
         <figure onclick="${() => this.close()}">
-          <img src="${image.src}">
+          <img class="${animation}" src="${image.src}" style="width: ${width}px; top: ${bounds.top}px; left: ${bounds.left}px">
         </figure>
       </div>
     `
