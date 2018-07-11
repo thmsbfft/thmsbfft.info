@@ -40,7 +40,26 @@ const overlay = css`
 
 const fadeIn = css`
   :host {
-    animation: fade-in 0.3s 1 cubic-bezier(0.19, 1, 0.22, 1);
+    animation: fade-in 0.2s 1 cubic-bezier(0.19, 1, 0.22, 1);
+  }
+`
+
+const fadeOut = css`
+  :host {
+    animation: fade-out 0.2s 1 cubic-bezier(0.19, 1, 0.22, 1);
+  }
+`
+
+const appear = css`
+  @keyframes appear {
+    0%   { 
+      opacity: 0;
+      transform: scale(0.85);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1.0);
+    }
   }
 `
 
@@ -50,56 +69,60 @@ module.exports = class Gallery extends Nanocomponent {
   }
 
   load () {
-    // console.log('Gallery height:', this.element.offsetHeight)
-    // if(this.scrollY) {
-    //   console.log('Restoring scroll to:', this.scrollY)
-    //   window.scrollTo(0, this.scrollY)
-    //   this.scrollY = null
-    // }
     
   }
   
   update () {
-    // if(this.scrollY) {
-    //   console.log('Restoring scroll to:', this.scrollY)
-    //   window.scrollTo(0, this.scrollY)
-    //   this.scrollY = null
-    // }
+
     return false
   }
 
   open (e, image) {
-    console.log('Opening image', image)
-    console.log(e.target.naturalWidth, 'Coords:', e.target.getBoundingClientRect())
-    var bounds = e.target.getBoundingClientRect()
-    var width = e.target.getBoundingClientRect().width
+    this.open = true
+    console.log('Opening')
 
-    var scaleX = width / e.target.naturalWidth
+    var origin = {
+      x: e.clientX / window.innerWidth * 100 + '%',
+      y: e.clientY / window.innerHeight * 100 + '%'
+    }
 
     var animation = css`
       :host {
-        position: fixed;
+        animation: appear 0.6s 1 cubic-bezier(0.19, 1, 0.22, 1);
       }
     `
 
-    console.log(this)
-    var lightbox = html`
+    this.lightbox = html`
       <div class="${overlay} ${fadeIn}">
         <figure onclick="${() => this.close()}">
-          <img class="${animation}" src="${image.src}" style="width: ${width}px; top: ${bounds.top}px; left: ${bounds.left}px">
+          <img class="${animation}" src="${image.src}" style="transform-origin: ${origin.x} ${origin.y}">
         </figure>
       </div>
     `
-    document.body.appendChild(lightbox)
+    document.body.appendChild(this.lightbox)
   }
 
   close () {
-    console.log('Closing')
+    if (!this.open) return
+
+    this.lightbox.classList.remove(fadeIn)
+    this.lightbox.classList.add(fadeOut)
+
+    this.lightbox.addEventListener('webkitAnimationEnd', () => {
+      this.onClosed()
+    })
+    this.lightbox.addEventListener('animationend', () => {
+      this.onClosed()
+    })
+  }
+
+  onClosed () {
+    console.log('Closed')
+    this.lightbox.parentNode.removeChild(this.lightbox)
+    this.open = false
   }
 
   createElement (state) {
-    // this.scrollY = state.scrollY
-    console.log('Rendering Gallery')
     return html`
       <section class="${style}">
         ${state.manifest.images.map(image => {

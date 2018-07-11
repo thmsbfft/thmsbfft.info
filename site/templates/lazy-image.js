@@ -37,6 +37,11 @@ const style = css`
     100% { opacity: 1; }
   }
 
+  @keyframes fade-out {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
   @media screen and (max-width: 1280px) {
     :host {
       flex-basis: 45%;
