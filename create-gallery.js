@@ -9,7 +9,7 @@ let manifest = {}
 let images = []
 
 const folder = 'gallery'
-const out = 'site/assets/gallery/'
+const out = path.join(__dirname, 'site/assets/gallery/')
 
 start()
 
