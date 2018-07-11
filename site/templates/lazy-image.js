@@ -107,9 +107,7 @@ module.exports = class LazyImage extends MonoLazy {
   constructor (id, state, emit) {
     super(`LazyImage-${id}`)
     state = state || {components:{}}
-    this.local = state.components[`LazyImage-${id}`] = {}
-    // var props = state.manifest.images[0]
-    
+    this.local = state.components[`LazyImage-${id}`] = {}    
   }
 
   onEnter () {
@@ -135,15 +133,15 @@ module.exports = class LazyImage extends MonoLazy {
     return false
   }
 
-  createElement (props, state) {
+  createElement (props, onClick) {
     this.id = props.id
     this.src = path.join('/assets', 'gallery', props.file)
     this.dimensions = props.dimensions
     this.b64 = props.b64
     this.notes = props.notes
     this.onClick = () => {
-      console.log('Saving scroll:', window.scrollY)
-      state.scrollY = window.scrollY
+      onClick(this)
+      return false
     }
 
     if(this.loaded) {
