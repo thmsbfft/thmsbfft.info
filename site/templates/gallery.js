@@ -22,12 +22,17 @@ const overlay = css`
     bottom: 0;
     left: 0;
   }
+`
 
-  :host figure {
-    width: 100vw;
-    height: 100vh;
+const zoomed = css`
+  :host {
     display: flex;
     cursor: zoom-out;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 
   :host img {
@@ -40,13 +45,13 @@ const overlay = css`
 
 const fadeIn = css`
   :host {
-    animation: fade-in 0.2s 1 cubic-bezier(0.19, 1, 0.22, 1);
+    animation: fade-in 0.3s 1 cubic-bezier(0.19, 1, 0.22, 1);
   }
 `
 
 const fadeOut = css`
   :host {
-    animation: fade-out 0.2s 1 cubic-bezier(0.19, 1, 0.22, 1);
+    animation: fade-out 0.3s 1 cubic-bezier(0.19, 1, 0.22, 1);
   }
 `
 
@@ -73,7 +78,6 @@ module.exports = class Gallery extends Nanocomponent {
   }
   
   update () {
-
     return false
   }
 
@@ -93,11 +97,12 @@ module.exports = class Gallery extends Nanocomponent {
     `
 
     this.lightbox = html`
-      <div class="${overlay} ${fadeIn}">
-        <figure onclick="${() => this.close()}">
+      <section>
+        <div class="${overlay} ${fadeIn}"></div>
+        <figure onclick="${() => this.close()}" class="${zoomed}">
           <img class="${animation}" src="${image.src}" style="transform-origin: ${origin.x} ${origin.y}">
         </figure>
-      </div>
+      </section>
     `
     document.body.appendChild(this.lightbox)
   }

@@ -1,6 +1,15 @@
 const Nanocomponent = require('nanocomponent')
 const html = require('choo/html')
+const css = require('sheetify')
 const moment = require('moment-timezone')
+
+const style = css`
+  @media screen and (max-width: 850px) {
+    :host {
+      display: none;
+    }
+  }
+`
 
 module.exports = class Clock extends Nanocomponent {
 
@@ -21,7 +30,7 @@ module.exports = class Clock extends Nanocomponent {
 
   createElement() {
     return html`
-      <time>${this.time}</time>
+      <time class="${style}">${this.time}</time>
     `
   }
 
