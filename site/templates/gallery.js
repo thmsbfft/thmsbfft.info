@@ -8,8 +8,14 @@ const style = css`
   :host {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    line-height: 0;
+  }
+
+  @media screen and (max-width: 850px) {
+    :host {
+      align-items: center;
+    }
   }
 `
 
@@ -82,7 +88,7 @@ module.exports = class Gallery extends Nanocomponent {
   }
 
   open (e, image) {
-    this.open = true
+    this.isOpen = true
     console.log('Opening')
 
     var origin = {
@@ -108,7 +114,7 @@ module.exports = class Gallery extends Nanocomponent {
   }
 
   close () {
-    if (!this.open) return
+    if (!this.isOpen) return
 
     this.lightbox.classList.remove(fadeIn)
     this.lightbox.classList.add(fadeOut)
@@ -124,7 +130,7 @@ module.exports = class Gallery extends Nanocomponent {
   onClosed () {
     console.log('Closed')
     this.lightbox.parentNode.removeChild(this.lightbox)
-    this.open = false
+    this.isOpen = false
   }
 
   createElement (state) {

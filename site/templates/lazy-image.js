@@ -6,8 +6,7 @@ const MonoLazy = require('monolazy')
 
 const style = css`
   :host {
-    flex-basis: 30%;
-    margin: 2em 1em;
+    margin: 0;
     position: relative;
   }
 
@@ -17,9 +16,7 @@ const style = css`
 
   :host img {
     display: block;
-    margin: auto;
-    max-width: 100%;
-    max-height: 400px;
+    height: 200px;
   }
 
   :host img {
@@ -42,20 +39,16 @@ const style = css`
     100% { opacity: 0; }
   }
 
-  @media screen and (max-width: 1280px) {
-    :host {
-      flex-basis: 45%;
-    }
-  }
-
   @media screen and (max-width: 850px) {
     :host {
-      flex-basis: 100%;
-      margin: 1em 0.5em;
+      flex-basis: 50%;
     }
 
     :host img {
-      max-height: 600px;
+      height: auto;
+      max-width: calc(100% - 4px);
+      max-height: calc(100vh * 0.3);
+      margin: auto;
     }
   }
 `
@@ -76,21 +69,33 @@ const legend = css`
   :host {
     position: absolute;
     width: 100%;
-    bottom: 15px;
+    bottom: 25px;
     text-align: center;
     font-size: 0.75em;
     opacity: 0;
+    z-index: 99;
+
   }
 
   :host p {
-    background-color: rgba(245, 245, 245, .9);
-    -webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
+    background-color: rgba(242, 242, 242, .85);
     margin-bottom: 0;
-    display: inline;
-    padding: 5px 10px;
     border-radius: 4px;
     pointer-events: none;
+    padding: 12px 6px;
+    border-radius: 4px;
+    pointer-events: none;
+    display: inline-block;
+    text-indent: 0;
+    max-width: calc(100% - 60px);
+    overflow-x: hidden;
+    line-height: 1px;
+    white-space: nowrap;
+  }
+
+  :host p::after {
+    content: '';
+    background-color: pink;
   }
 
   :host:hover {

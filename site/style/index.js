@@ -45,8 +45,14 @@ const body = css`
   hr {
     height: 2px;
     border: none;
-    background-color: lightgrey;
+    background-color: lightgray;
     margin-bottom: 3em;
+  }
+
+  @media screen and (max-width: 850px) {
+    :host {
+      padding: 1em;
+    }
   }
 `
 
