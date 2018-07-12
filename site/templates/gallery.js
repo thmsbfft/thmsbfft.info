@@ -78,7 +78,7 @@ module.exports = class Gallery extends Nanocomponent {
   }
   
   update () {
-    return false
+    return true
   }
 
   open (e, image) {
@@ -128,6 +128,7 @@ module.exports = class Gallery extends Nanocomponent {
   }
 
   createElement (state) {
+    console.log(this)
     return html`
       <section class="${style}">
         ${state.manifest.images.map(image => {

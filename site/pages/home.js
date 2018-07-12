@@ -6,7 +6,9 @@ const cursor = new Cursor()
 
 const style = css`
   :host {
-
+    font-family: "Times New Roman", serif;
+    font-size: 1.30em;
+    line-height: 1.2;
   }
 `
 
