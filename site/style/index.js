@@ -11,6 +11,7 @@ const body = css`
     font-size: 1.30em;
     line-height: 1.4;
     letter-spacing: 0px;
+    background: linear-gradient(to bottom, #D9E9FF 0%, #F7FAFF 25%) fixed;
   }
 
   :host a, :host a:visited {
