@@ -73,7 +73,7 @@ const legend = css`
     text-align: center;
     font-size: 0.75em;
     opacity: 0;
-    z-index: 99;
+    z-index: 88;
 
   }
 
@@ -81,7 +81,6 @@ const legend = css`
     background-color: rgba(242, 242, 242, .85);
     margin-bottom: 0;
     border-radius: 4px;
-    pointer-events: none;
     padding: 12px 6px;
     border-radius: 4px;
     pointer-events: none;
