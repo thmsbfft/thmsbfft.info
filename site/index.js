@@ -3,20 +3,15 @@ var choo = require('choo')
 var app = choo()
 
 app.use(function (state, emitter) {
-  state.pages = [
-    {name: 'Thomas', url: '', active: false},
-    {name: 'Log', url: 'log', active: false}
-  ]
+  // load some data
+  state.manifest = require('./assets/gallery/manifest.json')
 })
 
-app.use(require('./stores/images.js'))
 app.use(require('./stores/status.js'))
-app.use(require('./stores/nav.js'))
 
 const main = require('./templates/main.js')
 
 app.route('/', main)
 app.route('/:page', main)
-// app.route('/i/:image', lightbox)
 
 app.mount('body')

@@ -16,6 +16,9 @@ const style = css`
 `
 
 module.exports = function (state, emit) {
+
+  emit('DOMTitleChange', 't / log')
+
   return html`
     <section class="${style}">
       <menu>

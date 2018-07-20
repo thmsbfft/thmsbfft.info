@@ -75,6 +75,9 @@ const button = css`
 `
 
 module.exports = function (state, emit) {
+
+  emit('DOMTitleChange', 't /')
+
   let color = css`
     :host::after {
       background-color: lightgrey;
