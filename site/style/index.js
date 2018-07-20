@@ -1,17 +1,18 @@
 require('./reset.js').attach()
+require('./fonts.js').attach()
 const css = require('sheetify')
+
+// background: linear-gradient(to bottom, #D9E9FF 0%, #F7FAFF 25%) fixed;
 
 const body = css`
   :host {
-    font-family: -apple-system, system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, "Sans Serif", Icons;
+    font-family: "Neuzeit Book", -apple-system, system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, "Sans Serif", Icons;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: white;
-    padding: 2em;
-    font-size: 1.30em;
+    font-size: 1.0em;
     line-height: 1.4;
     letter-spacing: 0px;
-    background: linear-gradient(to bottom, #D9E9FF 0%, #F7FAFF 25%) fixed;
   }
 
   :host a, :host a:visited {
@@ -25,35 +26,35 @@ const body = css`
   }
 
   :host a:active {
-    scale: 0.9;
     opacity: 0.5;
   }
 
   :host p {
-    margin-bottom: 3em;
-    max-width: 800px;
-    text-indent: 2em;
+    margin-bottom: 1em;
+    text-indent: 0em;
   }
 
-  p strong {
-    font-weight: bold;
+  :host p strong {
+    font-family: "Neuzeit Book Heavy", -apple-system, system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, "Sans Serif", Icons;
   }
 
-  p em {
+  :host p em {
     font-style: italic;
   }
 
-  hr {
-    height: 2px;
+  :host ol, :host ul {
+    list-style: none;
+  }
+
+  :host li {
+    margin-bottom: 1em;
+  }
+
+  :host hr {
+    height: 1px;
     border: none;
     background-color: lightgray;
     margin-bottom: 3em;
-  }
-
-  @media screen and (max-width: 850px) {
-    :host {
-      padding: 1em;
-    }
   }
 `
 

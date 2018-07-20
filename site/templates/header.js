@@ -9,10 +9,12 @@ const clock = new Clock()
 // styles
 const style = css`
   :host {
-    margin-bottom: 4em;
+    margin-bottom: 2em;
+    padding-bottom: 0em;
     text-transform: none;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 3%;
   }
 `
 
@@ -27,13 +29,13 @@ const status = css`
     margin-right: 2em;
   }
 
-  :host::before {
+  :host::after {
     content: '';
     display: inline-block;
     width: 6px;
     height: 6px;
     border-radius: 6px;
-    margin-right: 6px;
+    margin-left: 6px;
     position: relative;
     top: -2px;
     background-color: lightgrey;
@@ -42,7 +44,7 @@ const status = css`
 
   @media screen and (max-width: 850px) {
     :host {
-      margin-right: 0;
+      margin-left: 0;
     }
   }
 `
@@ -65,11 +67,11 @@ module.exports = function(state, emit) {
 
   return html`
     <header class="${style}">
-      <nav class="${links}">${state.pages.map(nav)}</nav>
-      <aside>
+      ${state.pages.map(nav)}
+      <nav>
         <span class="${status} ${color}">${state.status}</span>
-        ${clock.render()}
-      </aside>
+      </nav>
+      ${clock.render()}
     </header>
   `
 }

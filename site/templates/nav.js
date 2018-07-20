@@ -4,7 +4,7 @@ const css = require('sheetify')
 const style = css`
   :host, :host:active, :host:visited {
     margin-right: 50px;
-    padding-bottom: 4px;
+    padding-bottom: 2px;
   }
 
   :host:hover {
@@ -15,19 +15,19 @@ const style = css`
 const active = css`
   :host {
     opacity: 1;
-    border-bottom: 2px solid lightgrey;
+    border-bottom: 1px dashed white;
   }
 `
 
 module.exports = function (nav) {
   if(nav.active) {
     return html`
-      <a href="/${nav.url}" class="${style} ${active}" title="${nav.name}">${nav.name}</a>
+      <nav><a href="/${nav.url}" class="${style} ${active}" title="${nav.name}">${nav.name}</a></nav>
     `
   }
   else {
     return html`
-      <a href="/${nav.url}" class="${style}" title="${nav.name}">${nav.name}</a>
+      <nav><a href="/${nav.url}" class="${style}" title="${nav.name}">${nav.name}</a></nav>
     `
   }
 }

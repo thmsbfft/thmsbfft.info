@@ -14,10 +14,9 @@ app.use(require('./stores/status.js'))
 app.use(require('./stores/nav.js'))
 
 const main = require('./templates/main.js')
-const lightbox = require('./templates/lightbox.js')
 
 app.route('/', main)
 app.route('/:page', main)
-app.route('/i/:image', lightbox)
+// app.route('/i/:image', lightbox)
 
 app.mount('body')

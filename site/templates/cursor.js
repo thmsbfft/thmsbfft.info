@@ -7,12 +7,12 @@ const io = socketio()
 // styles
 const cursor = css`
   :host {
-    width: 44px;
+    width: 30px;
     height: 44px;
-    background: url('/assets/cursor@2x.png');
-    background-size: 100%;
+    background: url('/assets/cursor@4x.png');
+    background-size: contain;
     position: fixed;
-    transition: all 0.05s linear;
+    transition: all 0.05s linear, opacity 1.5s linear;
     opacity: 0.5;
   }
 `
@@ -28,11 +28,11 @@ module.exports = class Cursor extends Nanocomponent {
     })
 
     io.on('message', (data) => {
-      console.log('>')
+      console.log(data)
       
-      this.cursor[0] = data.x
-      this.cursor[1] = data.y
-      this.update()
+      this.cursor[0] = Number(data.x)
+      this.cursor[1] = Number(data.y)
+      window.requestAnimationFrame(() => {this.update()})
     })
   }
 
@@ -45,8 +45,10 @@ module.exports = class Cursor extends Nanocomponent {
       this.element.style.opacity = 0
       return false
     }
+    else {
+      this.element.style.opacity = 0.5
+    }
 
-    this.element.style.opacity = 0.5
     this.element.style.left = this.cursor[0] + '%'
     this.element.style.top = this.cursor[1] + '%'
 

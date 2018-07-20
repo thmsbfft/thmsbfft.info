@@ -1,6 +1,8 @@
 const html = require('choo/html')
 const css = require('sheetify')
 
+const Gallery = require('../templates/gallery.js')
+
 // styles
 const body = require('../style/index.js')
 const black = css`
@@ -32,9 +34,10 @@ module.exports = function (state, emit) {
       page = require('../pages/404.js')
   }
 
+  // ${state.cache(Gallery, 'gallery').render(state)}
+
   return html`
     <body class="${body}">
-      ${header(state, emit)}
       ${page(state, emit)}
     </body>`
 
