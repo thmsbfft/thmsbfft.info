@@ -1,5 +1,5 @@
 {
-  "name": "thmsbfft.fr",
+  "name": "thmsbfft.info",
   "version": "1.0.0",
   "description": "",
   "main": "site/index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thmsbfft/thmsbfft.fr.git"
+    "url": "git+https://github.com/thmsbfft/thmsbfft.info.git"
   },
   "author": "Thomas Buffet",
   "license": "MIT",
