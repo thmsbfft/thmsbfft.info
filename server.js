@@ -18,7 +18,9 @@ const server = http.createServer(function (req, res) {
     res.statusCode = 404
     res.end('not found')
   })
-}).listen(8080)
+}).listen(8080, () => {
+  console.log('Listening on port 8080')
+})
 
 const io = socketio(server)
 
