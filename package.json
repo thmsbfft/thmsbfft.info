@@ -28,7 +28,6 @@
   "devDependencies": {
     "bankai": "^9.14.0",
     "image-size": "^0.6.3",
-    "powerwalker": "^0.1.0",
     "smarkt": "0.0.6",
     "uid": "0.0.2"
   }
