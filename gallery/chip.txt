@@ -1,0 +1,7 @@
+date: 2015
+----
+slug: chip
+----
+notes: logo for hardware company (for sale)
+----
+class:

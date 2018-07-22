@@ -4,7 +4,7 @@ const html = require('choo/html')
 const css = require('sheetify')
 const MonoLazy = require('monolazy')
 
-const style = css`
+const indexView = css`
   :host {
     margin: 0;
     position: relative;
@@ -17,12 +17,8 @@ const style = css`
   :host img {
     display: block;
     height: 200px;
-  }
-
-  :host img {
     border-radius: 4px;
-    border: 2px solid transparent;
-    transition: border-color 0.05s linear;
+    margin: 2px;
   }
 
   :host img:hover + legend {
@@ -53,28 +49,14 @@ const style = css`
   }
 `
 
-const placeholder = css`
-  :host img {
-    opacity: 0.1;
-  }
-`
-
-const fadeIn = css`
-  :host {
-    animation: fade-in 1s 1 cubic-bezier(0.19, 1, 0.22, 1);
-  }
-`
-
-const legend = css`
+const indexLegend = css`
   :host {
     position: absolute;
     width: 100%;
     bottom: 25px;
     text-align: center;
-    font-size: 0.75em;
     opacity: 0;
     z-index: 88;
-
   }
 
   :host p {
@@ -92,11 +74,6 @@ const legend = css`
     white-space: nowrap;
   }
 
-  :host p::after {
-    content: '';
-    background-color: pink;
-  }
-
   :host:hover {
     opacity: 1;
   }
@@ -108,6 +85,44 @@ const legend = css`
   }
 `
 
+const streamView = css`
+  :host {
+    margin-bottom: 15em;
+  }
+
+  :host p {
+    text-transform: uppercase;
+    max-width: 550px;
+    margin: auto;
+  }
+
+  :host img {
+    max-width: 100%;
+  }
+
+  :host a {
+    cursor: zoom-in;
+  }
+`
+
+const streamLegend = css`
+  :host {
+    margin-top: 1em;
+  }
+`
+
+const placeholder = css`
+  :host img {
+    opacity: 0.1;
+  }
+`
+
+const fadeIn = css`
+  :host {
+    animation: fade-in 1s 1 cubic-bezier(0.19, 1, 0.22, 1);
+  }
+`
+
 // adaptation of: monoimage, @jongacnik
 // https://github.com/jongacnik/monoimage/blob/master/index.js
 
@@ -116,7 +131,8 @@ module.exports = class LazyImage extends MonoLazy {
   constructor (id, state, emit) {
     super(`LazyImage-${id}`)
     state = state || {components:{}}
-    this.local = state.components[`LazyImage-${id}`] = {}    
+    this.local = state.components[`LazyImage-${id}`] = {}
+    this.deviceRatio = (typeof window !== 'undefined' && window.devicePixelRatio > 1) ? 1.75 : 1   
   }
 
   onEnter () {
@@ -139,10 +155,10 @@ module.exports = class LazyImage extends MonoLazy {
   }
 
   update () {
-    return false
+    return true
   }
 
-  createElement (props, onClick) {
+  createElement (props, view, onClick) {
     this.id = props.id
     this.src = path.join('/assets', 'gallery', props.file)
     this.dimensions = props.dimensions
@@ -153,23 +169,48 @@ module.exports = class LazyImage extends MonoLazy {
       return false
     }
 
-    if(this.loaded) {
+    if (view == 'index') {
+      // INDEX
+      if(this.loaded) {
+        return html`
+          <figure class="${indexView}">
+            <a onclick="${this.onClick}">
+              <img src="${this.src}">
+              <legend class="${indexLegend}">
+                <p>${this.notes.slug}</p>
+              </legend>
+            </a>
+          </figure>
+        `
+      }
+
       return html`
-        <figure class="${style}">
-          <a href="/i/${this.id}" onclick="${this.onClick}">
-            <img src="${this.src}">
-            <legend class="${legend}">
-              <p>${this.notes}</p>
+        <figure class="${indexView} ${placeholder}">
+          <img src="${this.b64}">
+        </figure>
+      `
+    }
+    else if (view == 'stream') {
+      // STREAM
+      if(this.loaded) {
+        return html`
+          <figure class="${streamView}">
+            <a onclick="${this.onClick}">
+              <img src="${this.src}" width="${this.dimensions[0] / this.deviceRatio}">
+            </a>
+            <legend class="${streamLegend}">
+              <p>${this.notes.notes} — ${this.notes.date}</p>
             </legend>
-          </a>
+          </figure>
+        `
+      }
+
+      return html`
+        <figure class="${streamView} ${placeholder}">
+          <img src="${this.b64}">
         </figure>
       `
     }
 
-    return html`
-      <figure class="${style} ${placeholder}">
-        <img src="${this.b64}">
-      </figure>
-    `
   }
 }

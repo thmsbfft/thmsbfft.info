@@ -1,0 +1,7 @@
+date: 2017
+----
+slug: doors
+----
+notes: Generative poster for WHALE.EE.
+----
+class:

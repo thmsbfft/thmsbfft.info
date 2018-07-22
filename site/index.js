@@ -8,6 +8,7 @@ app.use(function (state, emitter) {
 })
 
 app.use(require('./stores/status.js'))
+app.use(require('./stores/log-view.js'))
 
 const main = require('./templates/main.js')
 

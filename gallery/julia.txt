@@ -1,0 +1,7 @@
+date: 2017
+----
+slug: for julia
+----
+notes: website for biomedical research scientist julia taylor, phd
+----
+class:

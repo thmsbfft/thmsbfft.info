@@ -27,11 +27,15 @@ io.on('connect', (socket) => {
 
   socket.on('message', (data) => {
     console.log(data)
-    socket.broadcast.emit('message', data)
+    if(data.x && data.y) {
+      socket.broadcast.emit('message', {x: parseFloat(data.x), y: parseFloat(data.y)})
+    }
   })
 
   socket.on('status', (data) => {
     console.log(data)
-    socket.broadcast.emit('status', data)
+    if (data) {
+      socket.broadcast.emit('status', String(data))
+    }
   })
 })

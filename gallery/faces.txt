@@ -1,0 +1,7 @@
+date: 2017
+----
+slug: many faces
+----
+notes: many faces
+----
+class:

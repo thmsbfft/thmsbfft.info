@@ -1,1 +1,0 @@
-Procedural visual for a step counter.

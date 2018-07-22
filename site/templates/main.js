@@ -9,7 +9,6 @@ module.exports = function (state, emit) {
 
   switch (page) {
     case 'home':
-      console.log('hello?')
       page = require('../pages/home.js')
       break
     case 'log':

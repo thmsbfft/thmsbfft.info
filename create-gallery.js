@@ -4,6 +4,7 @@ const execSync = require('child_process').execSync
 const walk = require('powerwalker')
 const sizeOf = require('image-size')
 const uid = require('uid')
+const smarkt = require('smarkt')
 
 let manifest = {}
 let images = []
@@ -34,9 +35,8 @@ async function start () {
         "file": entry.base,
         "dimensions": [dimensions.width, dimensions.height],
         "b64": b64, 
-        "notes": fs.readFileSync(path.join(folder, entry.name + '.txt'), 'utf8')
+        "notes": smarkt.parse(fs.readFileSync(path.join(folder, entry.name + '.txt'), 'utf8'))
       })
-    
     }
   }
 

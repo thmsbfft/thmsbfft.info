@@ -4,7 +4,7 @@ const html = require('choo/html')
 
 const LazyImage = require('../templates/lazy-image.js')
 
-const style = css`
+const index = css`
   :host {
     display: flex;
     flex-wrap: wrap;
@@ -16,6 +16,12 @@ const style = css`
     :host {
       align-items: center;
     }
+  }
+`
+
+const streamView = css`
+  :host {
+    text-align: center;
   }
 `
 
@@ -136,12 +142,26 @@ module.exports = class Gallery extends Nanocomponent {
 
   createElement (state) {
     console.log(this)
-    return html`
-      <section class="${style}">
-        ${state.manifest.images.map(image => {
-          return state.cache(LazyImage, image.id).render(image, this.open.bind(this))
-        })}
-      </div>
-    `
+    console.log(state.logView)
+
+    if (state.logView == 'stream') {
+      return html`
+        <section class="${streamView}">
+          ${state.manifest.images.map(image => {
+            return state.cache(LazyImage, image.id).render(image, 'stream', this.open.bind(this))
+          })}
+        </div>
+      `
+    }
+    else if (state.logView == 'index') {
+      return html`
+        <section class="${index}">
+          ${state.manifest.images.map(image => {
+            return state.cache(LazyImage, image.id).render(image, 'index', this.open.bind(this))
+          })}
+        </div>
+      `
+    }
+
   }
 }

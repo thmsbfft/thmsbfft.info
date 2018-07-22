@@ -1,0 +1,7 @@
+date: 2017
+----
+slug: moebius
+----
+notes: Logo for Augmented Reality company (for sale).
+----
+class:

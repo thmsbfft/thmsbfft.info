@@ -29,6 +29,10 @@ const body = css`
     opacity: 0.5;
   }
 
+  :host h1 {
+    font-size: x-large;
+  }
+
   :host p {
     margin-bottom: 1em;
     text-indent: 0em;
