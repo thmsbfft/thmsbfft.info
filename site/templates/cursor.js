@@ -14,6 +14,7 @@ const cursor = css`
     position: fixed;
     transition: all 0.05s linear, opacity 1.5s linear;
     opacity: 0.5;
+    pointer-events: none;
   }
 `
 

@@ -28,7 +28,6 @@ io.on('connect', (socket) => {
   console.log('WS: NEW')
 
   socket.on('message', (data) => {
-    console.log(data)
     if(data.x && data.y) {
       socket.broadcast.emit('message', {x: parseFloat(data.x), y: parseFloat(data.y)})
     }

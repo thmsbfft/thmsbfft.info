@@ -108,6 +108,8 @@ const streamView = css`
 const streamLegend = css`
   :host {
     margin-top: 1em;
+    display: block;
+    margin: auto;
   }
 `
 
