@@ -6,7 +6,8 @@ const socketio = require('socket.io')
 
 const compiler = bankai(path.join(__dirname, 'site', 'index.js'), {
   quiet: true,
-  watch: false
+  watch: false,
+  reload: false
 })
 
 const server = http.createServer(function (req, res) {
