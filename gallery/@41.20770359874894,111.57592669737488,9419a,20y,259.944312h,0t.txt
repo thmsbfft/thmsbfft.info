@@ -2,6 +2,6 @@ date: 2017
 ----
 slug: @41.20770359874894,111.57592669737488,9419a
 ----
-notes: Unnamed road near 五福号, Inner Mongolia / China (@41.20770359874894,111.57592669737488,9419a)
+notes: Unnamed road near 五福号, Inner Mongolia / China (@41.20770359874894, 111.57592669737488, 9419a)
 ----
 class:

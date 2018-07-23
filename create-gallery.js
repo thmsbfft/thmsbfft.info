@@ -23,7 +23,8 @@ async function start () {
   manifest.images = []
 
   for (var i = 0; i < files.length; i++) {
-    if(path.extname(files[i]) == '.jpg' || path.extname(files[i]) == '.png' || path.extname(files[i]) == '.jpeg' || path.extname(files[i]) == '.gif ') {
+
+    if(path.extname(files[i]) == '.jpg' || path.extname(files[i]) == '.png' || path.extname(files[i]) == '.jpeg' || path.extname(files[i]) == '.gif') {
 
       images.push(files[i])
       var dimensions = sizeOf(files[i])
@@ -45,7 +46,7 @@ async function start () {
 
 function save () {
   // save manifest
-  fs.writeFileSync(path.join(out, 'manifest.json'), JSON.stringify(manifest))
+  fs.writeFileSync(out + 'manifest.json', JSON.stringify(manifest))
 
   // save images
   for (var i = 0; i < images.length; i++) {

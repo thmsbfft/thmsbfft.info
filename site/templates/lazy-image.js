@@ -107,9 +107,9 @@ const streamView = css`
 
 const streamLegend = css`
   :host {
-    margin-top: 1em;
     display: block;
     margin: auto;
+    margin-top: 1em;
   }
 `
 
@@ -201,7 +201,7 @@ module.exports = class LazyImage extends MonoLazy {
               <img src="${this.src}" width="${this.dimensions[0] / this.deviceRatio}">
             </a>
             <legend class="${streamLegend}">
-              <p>${this.notes.notes} — ${this.notes.date}</p>
+              <p>${this.notes.notes}</p>
             </legend>
           </figure>
         `

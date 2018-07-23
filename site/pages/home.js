@@ -17,15 +17,6 @@ const style = css`
     padding: 2em;
     height: calc(100vh - 4em);
   }
-
-  :host section {
-
-  }
-
-  :host h4 {
-    margin-bottom: 1em;
-    font-weight: normal;
-  }
 `
 
 const bottom = css`
@@ -96,7 +87,7 @@ module.exports = function (state, emit) {
     <section class="${style}">
         <section>
           <p>
-            <strong>Thomas</strong> is a designer.
+            <strong>Thomas</strong> is a designer based in Los Angeles.
           </p>
           <ul>
             <li>➀ Real-time graphics and visual metaphors for <a href="https://store.google.com/us/product/pixel_2" target="_blank">Pixel</a></li>
@@ -105,10 +96,11 @@ module.exports = function (state, emit) {
             <li>➃ <a href="http://pressanykey.today" target="_blank">pressanykey.today</a></li>
             <li>➄ <a href="https://vimeo.com/100055018" target="_blank">Two Computers</a></li>
           </ul>
-          <p>Visit <a href="/log" class="${button}">/log</a> for images. Thank you for visiting. ☯</p>
+          <p>Visit <a href="/log" class="${button}">/log</a> for images. Thank you for reading.</p>
           <p>
             <a href="mailto:thmsbfft@gmail.com" target="_blank">thmsbfft@gmail.com</a><br/>
           </p>
+          <p>☯</p>
         </section>
         <section class="${bottom}">
           <span class="${status} ${color}">${state.status}</span>

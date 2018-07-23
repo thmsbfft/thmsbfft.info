@@ -1,7 +1,3 @@
-// https://github.com/wcastand/mobile-time/blob/master/server.js
-// https://github.com/BenjaminVerble/choo-http/blob/master/server.js
-// https://github.com/plaey/chatbot/blob/master/server.js
-
 const bankai = require('bankai/http')
 const http = require('http')
 const path = require('path')
@@ -9,8 +5,8 @@ const path = require('path')
 const socketio = require('socket.io')
 
 const compiler = bankai(path.join(__dirname, 'site', 'index.js'), {
-  quiet: false,
-  watch: true
+  quiet: true,
+  watch: false
 })
 
 const server = http.createServer(function (req, res) {
@@ -35,6 +31,7 @@ io.on('connect', (socket) => {
 
   socket.on('status', (data) => {
     console.log(data)
+
     if (data) {
       socket.broadcast.emit('status', String(data))
     }

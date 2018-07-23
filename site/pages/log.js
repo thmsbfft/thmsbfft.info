@@ -32,8 +32,9 @@ const button = css`
   :host {
     border: 1px solid lightgrey;
     border-radius: 6px;
-    padding: 1px 3px;
+    padding: 0px 4px 2px 4px;
     cursor: pointer;
+    margin: 0 4px;
   }
 
   :host:hover {
@@ -61,7 +62,7 @@ module.exports = function (state, emit) {
           <p class="${right}">Last updated ${new Date(state.manifest.lastupdated).getMonth() + '/' + new Date(state.manifest.lastupdated).getDate()}</p>
         </nav>
       </menu>
-      <p style="text-align:center">2018–2018</p>
+      <p style="text-align:center">images ~2015–2018</p>
       <nav class="${nav}">
         <a onclick=${onclick} data-view="stream" class="${button} ${state.logView == 'stream' ? active : ''}">stream</a>
         <a onclick=${onclick} data-view="index" class="${button} ${state.logView == 'index' ? active : ''}">index</a>

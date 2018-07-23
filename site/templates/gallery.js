@@ -96,7 +96,6 @@ module.exports = class Gallery extends Nanocomponent {
 
   open (e, image) {
     this.isOpen = true
-    console.log('Opening')
 
     var origin = {
       x: e.clientX / window.innerWidth * 100 + '%',
@@ -135,14 +134,11 @@ module.exports = class Gallery extends Nanocomponent {
   }
 
   onClosed () {
-    console.log('Closed')
     this.lightbox.parentNode.removeChild(this.lightbox)
     this.isOpen = false
   }
 
   createElement (state) {
-    console.log(this)
-    console.log(state.logView)
 
     if (state.logView == 'stream') {
       return html`

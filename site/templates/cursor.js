@@ -25,12 +25,10 @@ module.exports = class Cursor extends Nanocomponent {
     this.cursor = [50, 50]
 
     io.on('connect', (data, done) => {
-      console.log('WS OK')
+      console.log('✔')
     })
 
     io.on('message', (data) => {
-      console.log(data)
-      
       this.cursor[0] = Number(data.x)
       this.cursor[1] = Number(data.y)
       window.requestAnimationFrame(() => {this.update()})
@@ -42,6 +40,8 @@ module.exports = class Cursor extends Nanocomponent {
   }
 
   update (status) {
+    if (!this.element) return false
+
     if (status === 'AFK') {
       this.element.style.opacity = 0
       return false
