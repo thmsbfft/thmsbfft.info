@@ -7,13 +7,13 @@ module.exports = function (state, emitter) {
   io.on('message', (data) => {
     if(state.status !== 'Online') {
       state.status = 'Online'
-      emitter.emit('render')
+      emitter.emit(state.events.RENDER)
     }
   })
 
   io.on('status', (data) => {
     console.log(data)
     state.status = data
-    emitter.emit('render')
+    emitter.emit(state.events.RENDER)
   })
 }

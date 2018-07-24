@@ -3,6 +3,6 @@ module.exports = function (state, emitter) {
 
   emitter.on('log:view-change', (view) => {
     state.logView = view
-    emitter.emit('render')
+    emitter.emit(state.events.RENDER)
   })
 }

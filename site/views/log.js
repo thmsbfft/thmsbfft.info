@@ -1,6 +1,8 @@
 const html = require('choo/html')
 const css = require('sheetify')
-const Gallery = require('../templates/gallery.js')
+const Gallery = require('../components/gallery.js')
+
+const TITLE = 't / log'
 
 const style = css`
   :host {
@@ -49,8 +51,7 @@ const active = css`
 `
 
 module.exports = function (state, emit) {
-
-  emit('DOMTitleChange', 't / log')
+  if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE)
 
   return html`
     <section class="${style}">

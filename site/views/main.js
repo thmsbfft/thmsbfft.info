@@ -9,13 +9,13 @@ module.exports = function (state, emit) {
 
   switch (page) {
     case 'home':
-      page = require('../pages/home.js')
+      page = require('./home.js')
       break
     case 'log':
-      page = require('../pages/log.js')
+      page = require('./log.js')
       break
     default:
-      page = require('../pages/404.js')
+      page = require('./404.js')
   }
 
   return html`

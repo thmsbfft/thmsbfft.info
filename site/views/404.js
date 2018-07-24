@@ -1,6 +1,8 @@
 const html = require('choo/html')
 const css = require('sheetify')
 
+const TITLE = 't / 404'
+
 const style = css`
   :host {
     padding: 2em;
@@ -8,8 +10,7 @@ const style = css`
 `
 
 module.exports = function (state, emit) {
-
-  emit('DOMTitleChange', 't / 404')
+  if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE)
 
   return html`
     <section class="${style}">

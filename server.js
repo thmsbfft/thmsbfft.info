@@ -1,3 +1,5 @@
+process.env.NODE_ENV = 'production'
+
 const bankai = require('bankai/http')
 const http = require('http')
 const path = require('path')
@@ -22,7 +24,7 @@ const server = http.createServer(function (req, res) {
 const io = socketio(server)
 
 io.on('connect', (socket) => {
-  console.log('WS: NEW')
+  // Someone connected
 
   socket.on('message', (data) => {
     if(data.x && data.y) {

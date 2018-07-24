@@ -1,6 +1,13 @@
 require('babel-polyfill')
 var choo = require('choo')
+
 var app = choo()
+
+if (process.env.NODE_ENV !== 'production') {
+  app.use(require('choo-devtools')())
+} else {
+  app.use(require('choo-service-worker')())
+}
 
 app.use(function (state, emitter) {
   // load some data
@@ -10,7 +17,7 @@ app.use(function (state, emitter) {
 app.use(require('./stores/status.js'))
 app.use(require('./stores/log-view.js'))
 
-const main = require('./templates/main.js')
+const main = require('./views/main.js')
 
 app.route('/', main)
 app.route('/:page', main)

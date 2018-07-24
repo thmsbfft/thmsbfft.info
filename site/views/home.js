@@ -2,13 +2,13 @@ const html = require('choo/html')
 const raw = require('nanohtml/raw')
 const css = require('sheetify')
 
-const Cursor = require('../templates/cursor.js')
+const TITLE = 't /'
+
+const Cursor = require('../components/cursor.js')
 const cursor = new Cursor()
 
-const Clock = require('../templates/clock.js')
+const Clock = require('../components/clock.js')
 const clock = new Clock()
-
-const nbsp = '&nbsp;'
 
 const style = css`
   :host {
@@ -66,8 +66,7 @@ const button = css`
 `
 
 module.exports = function (state, emit) {
-
-  emit('DOMTitleChange', 't /')
+  if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE)
 
   let color = css`
     :host::after {
@@ -75,6 +74,7 @@ module.exports = function (state, emit) {
       border: 1px solid lightgrey;
     }
   `
+
   if (state.status === 'Online') {
     color = css`
       :host::after {

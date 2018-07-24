@@ -1,8 +1,8 @@
-const Nanocomponent = require('nanocomponent')
+const Component = require('nanocomponent')
 const css = require('sheetify')
 const html = require('choo/html')
 
-const LazyImage = require('../templates/lazy-image.js')
+const LazyImage = require('./lazy-image.js')
 
 const index = css`
   :host {
@@ -81,9 +81,10 @@ const appear = css`
   }
 `
 
-module.exports = class Gallery extends Nanocomponent {
-  constructor () {
-    super()
+module.exports = class Gallery extends Component {
+  constructor (id, state, emit) {
+    super(id)
+    // this.local = state.components[id] = {}
   }
 
   load () {

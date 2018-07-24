@@ -1,6 +1,6 @@
 const html = require('choo/html')
 const css = require('sheetify')
-const Nanocomponent = require('nanocomponent')
+const Component = require('nanocomponent')
 const socketio = require('socket.io-client')
 const io = socketio()
 
@@ -18,10 +18,11 @@ const cursor = css`
   }
 `
 
-module.exports = class Cursor extends Nanocomponent {
+module.exports = class Cursor extends Component {
 
-  constructor () {
-    super()
+  constructor (id, state, emit) {
+    super(id)
+    // this.local = state.components[id] = {}
     this.cursor = [50, 50]
 
     io.on('connect', (data, done) => {
