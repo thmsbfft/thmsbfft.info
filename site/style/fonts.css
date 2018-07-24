@@ -1,9 +1,11 @@
 @font-face {
   font-family: "Neuzeit Book";
+  font-display: swap;
   src: url("../assets/fonts/neuzeitsltstd-book.woff") format("woff");
 }
 
 @font-face {
   font-family: "Neuzeit Book Heavy";
+  font-display: swap;
   src: url("../assets/fonts/neuzeitsltstd-bookheavy.woff") format("woff");
 }

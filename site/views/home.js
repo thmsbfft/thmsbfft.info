@@ -91,10 +91,10 @@ module.exports = function (state, emit) {
           </p>
           <ul>
             <li>➀ Real-time graphics and visual metaphors for <a href="https://store.google.com/us/product/pixel_2" target="_blank">Pixel</a></li>
-            <li>➁ <a href="https://www.google.com/earth/" target="_blank">Google Earth</a>, a geographic information system (GIS) application</li>
-            <li>➂ <a href="http://oryoki.io/" target="_blank">Ōryōki</a>, an experimental web browser</li>
-            <li>➃ <a href="http://pressanykey.today" target="_blank">pressanykey.today</a></li>
-            <li>➄ <a href="https://vimeo.com/100055018" target="_blank">Two Computers</a></li>
+            <li>➁ <a href="https://www.google.com/earth/" target="_blank" rel="noopener">Google Earth</a>, a geographic information system (GIS) application</li>
+            <li>➂ <a href="http://oryoki.io/" target="_blank" rel="noopener">Ōryōki</a>, an experimental web browser</li>
+            <li>➃ <a href="http://pressanykey.today" target="_blank" rel="noopener">pressanykey.today</a></li>
+            <li>➄ <a href="https://vimeo.com/100055018" target="_blank" rel="noopener">Two Computers</a></li>
           </ul>
           <p>Visit <a href="/log" class="${button}">/log</a> for images. Thank you for reading.</p>
           <p>
