@@ -90,7 +90,7 @@ module.exports = function (state, emit) {
             <strong>Thomas</strong> is a designer based in Los Angeles.
           </p>
           <ul>
-            <li>➀ Real-time graphics and visual metaphors for <a href="https://store.google.com/us/product/pixel_2" target="_blank">Pixel</a></li>
+            <li>➀ Real-time graphics and visual metaphors for <a href="https://store.google.com/us/product/pixel_2" target="_blank"  rel="noopener">Pixel</a></li>
             <li>➁ <a href="https://www.google.com/earth/" target="_blank" rel="noopener">Google Earth</a>, a geographic information system (GIS) application</li>
             <li>➂ <a href="http://oryoki.io/" target="_blank" rel="noopener">Ōryōki</a>, an experimental web browser</li>
             <li>➃ <a href="http://pressanykey.today" target="_blank" rel="noopener">pressanykey.today</a></li>
