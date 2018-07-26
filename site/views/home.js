@@ -17,6 +17,14 @@ const style = css`
     padding: 2em;
     height: calc(100vh - 4em);
   }
+
+  @media screen and (max-width: 850px) {
+    :host ul li {
+      margin-left: 20px;
+      text-indent: -20px;
+      max-width: 80%;
+    }
+  }
 `
 
 const bottom = css`
@@ -108,7 +116,7 @@ module.exports = function (state, emit) {
             ${clock.render()}
           </p>
           <p>
-            Last updated ${new Date(state.manifest.lastupdated).getMonth() + '/' + new Date(state.manifest.lastupdated).getDate()}
+            Last updated ${new Date(state.manifest.lastupdated).getMonth() + '/' + new Date(state.manifest.lastupdated).getDate()} - <a href="/colophon">Colophon</a>
           </p>
         </section>
       ${cursor.render(state.status)}

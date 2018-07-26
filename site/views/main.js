@@ -14,6 +14,9 @@ module.exports = function (state, emit) {
     case 'log':
       page = require('./log.js')
       break
+    case 'colophon':
+      page = require('./colophon.js')
+      break
     default:
       page = require('./404.js')
   }
