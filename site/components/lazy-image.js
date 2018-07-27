@@ -17,7 +17,6 @@ const indexView = css`
   :host img {
     display: block;
     height: 200px;
-    border-radius: 4px;
     margin: 2px;
   }
 
@@ -64,7 +63,6 @@ const indexLegend = css`
     margin-bottom: 0;
     border-radius: 4px;
     padding: 12px 6px;
-    border-radius: 4px;
     pointer-events: none;
     display: inline-block;
     text-indent: 0;
