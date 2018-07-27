@@ -1,5 +1,3 @@
-/* global io */
-
 const html = require('choo/html')
 const css = require('sheetify')
 const Component = require('nanocomponent')
@@ -23,23 +21,14 @@ module.exports = class Cursor extends Component {
   constructor (id, state, emit) {
     super(id)
     // this.local = state.components[id] = {}
-    this.position = [50, 50]
-
-    global.io.on('message', (data) => {
-      this.position[0] = Number(data.x)
-      this.position[1] = Number(data.y)
-      window.requestAnimationFrame(() => {this.update()})
-    })
   }
 
   load (el)  {
     el.style.opacity = 0
   }
 
-  update (status) {
-    if (!this.element) return false
-
-    if (status === 'AFK') {
+  update (state) {
+    if (state.status === 'AFK') {
       this.element.style.opacity = 0
       return false
     }
@@ -47,8 +36,8 @@ module.exports = class Cursor extends Component {
       this.element.style.opacity = 0.5
     }
 
-    var x = this.position[0]/100 * window.innerWidth
-    var y = this.position[1]/100 * window.innerHeight
+    var x = state.position[0]/100 * window.innerWidth
+    var y = state.position[1]/100 * window.innerHeight
 
     if (x + 30 > window.innerWidth) {
       x = window.innerWidth - 30
@@ -66,7 +55,7 @@ module.exports = class Cursor extends Component {
 
   createElement() {
     return html`
-      <figure class="${cursor}" style="left: ${this.position[0] + '%'}; top: ${this.position[1] + '%'}"></figure>
+      <figure class="${cursor}" style="left: 0%; top: 0%"></figure>
     `
   }
 

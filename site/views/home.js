@@ -119,7 +119,7 @@ module.exports = function (state, emit) {
             Last updated ${new Date(state.manifest.lastupdated).getMonth() + '/' + new Date(state.manifest.lastupdated).getDate()} - <a href="/colophon">Colophon</a>
           </p>
         </section>
-      ${cursor.render(state.status)}
+      ${cursor.render(state)}
     </section>
   `
 }

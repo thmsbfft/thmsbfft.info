@@ -1,6 +1,4 @@
 require('babel-polyfill')
-const socketio = require('socket.io-client')
-global.io = socketio()
 
 var choo = require('choo')
 var app = choo()
@@ -16,7 +14,7 @@ app.use(function (state, emitter) {
   state.manifest = require('./assets/gallery/manifest.json')
 })
 
-app.use(require('./stores/status.js'))
+app.use(require('./stores/socket.js'))
 app.use(require('./stores/log-view.js'))
 
 const main = require('./views/main.js')
