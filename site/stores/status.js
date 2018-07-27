@@ -1,8 +1,11 @@
-const socketio = require('socket.io-client')
-const io = socketio()
+/* global io */
 
 module.exports = function (state, emitter) {
-  state.status = 'AFK'
+  state.status = 'Online'
+
+  io.on('connect', (data, done) => {
+    console.log('✔')
+  })
 
   io.on('message', (data) => {
     if(state.status !== 'Online') {

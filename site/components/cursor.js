@@ -1,8 +1,7 @@
+/* global io */
 const html = require('choo/html')
 const css = require('sheetify')
 const Component = require('nanocomponent')
-const socketio = require('socket.io-client')
-const io = socketio()
 
 // styles
 const cursor = css`
@@ -23,15 +22,11 @@ module.exports = class Cursor extends Component {
   constructor (id, state, emit) {
     super(id)
     // this.local = state.components[id] = {}
-    this.cursor = [50, 50]
-
-    io.on('connect', (data, done) => {
-      console.log('✔')
-    })
+    this.position = [50, 50]
 
     io.on('message', (data) => {
-      this.cursor[0] = Number(data.x)
-      this.cursor[1] = Number(data.y)
+      this.position[0] = Number(data.x)
+      this.position[1] = Number(data.y)
       window.requestAnimationFrame(() => {this.update()})
     })
   }
@@ -51,15 +46,26 @@ module.exports = class Cursor extends Component {
       this.element.style.opacity = 0.5
     }
 
-    this.element.style.left = this.cursor[0] + '%'
-    this.element.style.top = this.cursor[1] + '%'
+    var x = this.position[0]/100 * window.innerWidth
+    var y = this.position[1]/100 * window.innerHeight
+
+    if (x + 30 > window.innerWidth) {
+      x = window.innerWidth - 30
+    }
+
+    if (y + 44 > window.innerHeight) {
+      y = window.innerHeight - 44
+    }
+
+    this.element.style.left = x + 'px'
+    this.element.style.top = y + 'px'
 
     return false
   }
 
   createElement() {
     return html`
-      <figure class="${cursor}" style="left: ${this.cursor[0] + '%'}; top: ${this.cursor[1] + '%'}"></figure>
+      <figure class="${cursor}" style="left: ${this.position[0] + '%'}; top: ${this.position[1] + '%'}"></figure>
     `
   }
 

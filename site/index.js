@@ -1,6 +1,8 @@
 require('babel-polyfill')
-var choo = require('choo')
+const socketio = require('socket.io-client')
+global.io = socketio()
 
+var choo = require('choo')
 var app = choo()
 
 if (process.env.NODE_ENV !== 'production') {
