@@ -1,4 +1,5 @@
 /* global io */
+
 const html = require('choo/html')
 const css = require('sheetify')
 const Component = require('nanocomponent')
@@ -24,7 +25,7 @@ module.exports = class Cursor extends Component {
     // this.local = state.components[id] = {}
     this.position = [50, 50]
 
-    io.on('message', (data) => {
+    global.io.on('message', (data) => {
       this.position[0] = Number(data.x)
       this.position[1] = Number(data.y)
       window.requestAnimationFrame(() => {this.update()})
