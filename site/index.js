@@ -18,8 +18,11 @@ app.use(require('./stores/socket.js'))
 app.use(require('./stores/log-view.js'))
 
 const main = require('./views/main.js')
+const lightbox = require('./views/lightbox.js')
 
 app.route('/', main)
 app.route('/:page', main)
+
+app.route('/i/:image', lightbox)
 
 app.mount('body')
