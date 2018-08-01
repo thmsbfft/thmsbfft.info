@@ -15,13 +15,18 @@ module.exports = function (state, emitter) {
     }
     state.position[0] = Number(data.x)
     state.position[1] = Number(data.y)
-      
-    emitter.emit(state.events.RENDER)
+
+    if (state.route == '/' || state.params.page == 'colophon') {
+      // only re-render on pages with cursor
+      emitter.emit(state.events.RENDER)
+    }
   })
 
   io.on('status', (data) => {
-    console.log(data)
     state.status = data
-    emitter.emit(state.events.RENDER)
+    if (state.route !== '/' || state.params.page == 'colophon') {
+      // only re-render on pages with cursor
+      emitter.emit(state.events.RENDER)
+    }
   })
 }
