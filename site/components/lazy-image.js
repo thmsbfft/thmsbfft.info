@@ -43,7 +43,7 @@ const indexView = css`
       height: auto;
       max-width: calc(100% - 4px);
       max-height: calc(100vh * 0.3);
-      margin: auto;
+      margin: 2px auto;
     }
   }
 `
