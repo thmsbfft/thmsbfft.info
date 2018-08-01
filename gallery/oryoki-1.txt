@@ -1,7 +1,0 @@
-date: 2017
-----
-slug: ōryōki
-----
-notes: ōryōki
-----
-class:

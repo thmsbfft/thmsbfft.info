@@ -1,0 +1,7 @@
+date: 2017
+----
+slug: yesterday
+----
+notes: yesterday | tomorrow, digital watch face
+----
+class:

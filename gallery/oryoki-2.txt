@@ -2,6 +2,6 @@ date: 2017
 ----
 slug: ōryōki
 ----
-notes: ōryōki
+notes: ōryōki, showing magnetriver.com
 ----
 class:

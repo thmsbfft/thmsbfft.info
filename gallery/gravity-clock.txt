@@ -1,0 +1,7 @@
+date: 2018
+----
+slug: gravity clock
+----
+notes: prototype for a digital clock
+----
+class:

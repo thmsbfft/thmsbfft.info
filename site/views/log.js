@@ -63,7 +63,7 @@ module.exports = function (state, emit) {
           <p class="${right}">Last updated ${new Date(state.manifest.lastupdated).getMonth() + '/' + new Date(state.manifest.lastupdated).getDate()}</p>
         </nav>
       </menu>
-      <p style="text-align:center">images ~2015–2018</p>
+      <p style="text-align:center">process + output</p>
       <nav class="${nav}">
         <a onclick=${onclick} data-view="stream" class="${button} ${state.logView == 'stream' ? active : ''}">stream</a>
         <a onclick=${onclick} data-view="index" class="${button} ${state.logView == 'index' ? active : ''}">index</a>
