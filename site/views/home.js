@@ -98,8 +98,8 @@ module.exports = function (state, emit) {
             <strong>Thomas</strong> is a designer based in Los Angeles.
           </p>
           <ul>
-            <li>➀ <a href="https://google.com/earth/studio" target="_blank" rel="noopener">Google Earth Studio</a>, an animation tool for Google Earth imagery.</li>
-            <li>➁ Real-time graphics and visual metaphors for Pixel</li>
+            <li>➀ <a href="https://google.com/earth/studio" target="_blank" rel="noopener">Google Earth Studio</a>, an animation tool for Google Earth imagery</li>
+            <li>➁ Real-time graphics and visual metaphors for Pixel 1, 2, 3</li>
             <li>➂ <a href="https://www.google.com/earth/" target="_blank" rel="noopener">Google Earth</a>, a geographic information system (GIS) application</li>
             <li>➃ <a href="http://oryoki.io/" target="_blank" rel="noopener">Ōryōki</a>, an experimental web browser</li>
             <li>➄ <a href="http://pressanykey.today" target="_blank" rel="noopener">pressanykey.today</a></li>
