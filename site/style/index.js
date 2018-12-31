@@ -5,7 +5,7 @@ const css = require('sheetify')
 
 const body = css`
   :host {
-    font-family: -apple-system, system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, "Sans Serif", Icons;
+    font-family: -apple-system, system-ui, "Helvetica Neue", Roboto, sans-serif, "Sans Serif", Icons;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: white;
@@ -16,7 +16,7 @@ const body = css`
 
   :host a, :host a:visited {
     color: black;
-    font-size: 1.15em;
+    font-size: 1.075em;
     font-family: serif;
     font-style: italic;
     text-decoration: none;
@@ -38,7 +38,7 @@ const body = css`
   }
 
   :host p strong {
-    font-family: "Neuzeit Book Heavy", -apple-system, system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, "Sans Serif", Icons;
+    font-weight: bold;
   }
 
   :host p em {
