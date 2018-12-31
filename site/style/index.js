@@ -9,15 +9,13 @@ const body = css`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: white;
-    font-size: 1.3em;
+    font-size: 1.1em;
     line-height: 1.4;
     letter-spacing: 0.2px;
   }
 
   :host a, :host a:visited {
-    color: black;
-    font-family: serif;
-    font-style: italic;
+    color: blue;
     text-decoration: none;
     transition: opacity 0.2s;
     letter-spacing: -0.25px;
@@ -32,7 +30,7 @@ const body = css`
   }
 
   :host p {
-    margin-bottom: 1em;
+    margin-bottom: 0.75em;
     text-indent: 0em;
   }
 
@@ -49,7 +47,7 @@ const body = css`
   }
 
   :host li {
-    margin-bottom: 1em;
+    margin-bottom: 0.75em;
   }
 
   :host hr {

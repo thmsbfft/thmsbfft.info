@@ -6,7 +6,7 @@ const TITLE = 't / log'
 
 const style = css`
   :host {
-    padding: 2em;
+    padding: 1.5em;
   }
 
   :host menu {
@@ -33,11 +33,12 @@ const nav = css`
 const button = css`
   :host {
     border-radius: 8px;
-    padding: 1px 4px;
+    padding: 2px 6px;
   }
 
   :host:hover {
     text-decoration: none!important;
+    cursor: pointer;
   }
 `
 
@@ -57,7 +58,7 @@ module.exports = function (state, emit) {
           <a href="/">Back</a>
         </nav>
         <nav>
-          <p class="${right}">Last updated ${new Date(state.manifest.lastupdated).getMonth() + '/' + new Date(state.manifest.lastupdated).getDate()}</p>
+          <p class="${right}">Last updated ${new Date(state.manifest.lastupdated).getDate() + '/' + (new Date(state.manifest.lastupdated).getMonth() + 1) + '/' + new Date(state.manifest.lastupdated).getFullYear()}</p>
         </nav>
       </menu>
       <p style="text-align:center">Process + Output</p>

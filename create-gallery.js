@@ -19,7 +19,7 @@ async function start () {
     filesonly: true,
   })
 
-  manifest.lastupdated = Date.now()
+  manifest.lastupdated = new Date()
   manifest.images = []
 
   for (var i = 0; i < files.length; i++) {

@@ -21,7 +21,7 @@ module.exports = function (state, emit) {
 
   return html`
     <section class="${style}">
-      <p>This website is set in Neuzeit Grotesk, originally designed by Wilhelm Pischner, and published by URW++. The source of this website is hosted on <a href="https://github.com/thmsbfft/thmsbfft.info" target="_blank" rel="noopener">→Github</a>, where you can find some notes about how it works and what might be interesting to you.</p>
+      <p>The source of this website is hosted on <a href="https://github.com/thmsbfft/thmsbfft.info" target="_blank" rel="noopener">→Github</a>, where you can find some notes about how it works and what might be interesting to you.</p>
       <p><a href="/">Back</a></p>
       ${cursor.render(state)}
     </section>

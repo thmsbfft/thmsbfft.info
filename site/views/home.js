@@ -65,7 +65,7 @@ const button = css`
   :host {
     background: lightgrey;
     border-radius: 8px;
-    padding: 1px 4px;
+    padding: 2px 6px;
   }
 
   :host:hover {
@@ -117,7 +117,7 @@ module.exports = function (state, emit) {
             ${clock.render()}
           </p>
           <p>
-            Last updated ${new Date(state.manifest.lastupdated).getMonth() + '/' + new Date(state.manifest.lastupdated).getDate()} - <a href="/colophon">Colophon</a>
+            Last updated ${new Date(state.manifest.lastupdated).getDate() + '/' + (new Date(state.manifest.lastupdated).getMonth() + 1) + '/' + new Date(state.manifest.lastupdated).getFullYear()} - <a href="/colophon">Colophon</a>
           </p>
         </section>
       ${cursor.render(state)}

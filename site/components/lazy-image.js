@@ -56,6 +56,7 @@ const indexLegend = css`
     text-align: center;
     opacity: 0;
     z-index: 88;
+    color: black;
   }
 
   :host p {
@@ -70,6 +71,10 @@ const indexLegend = css`
     overflow-x: hidden;
     line-height: 1px;
     white-space: nowrap;
+  }
+
+  :host a {
+    color: black;
   }
 
   :host:hover {
