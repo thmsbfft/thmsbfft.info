@@ -1,5 +1,4 @@
 require('./reset.js').attach()
-require('./fonts.js').attach()
 const css = require('sheetify')
 
 // background: linear-gradient(to bottom, #D9E9FF 0%, #F7FAFF 25%) fixed;
