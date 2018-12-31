@@ -32,11 +32,8 @@ const nav = css`
 
 const button = css`
   :host {
-    border: 1px solid lightgrey;
-    border-radius: 6px;
-    padding: 0px 4px 2px 4px;
-    cursor: pointer;
-    margin: 0 4px;
+    border-radius: 8px;
+    padding: 1px 4px;
   }
 
   :host:hover {
@@ -46,7 +43,7 @@ const button = css`
 
 const active = css`
   :host {
-    border: 1px solid black;
+    background: lightgrey;
   }
 `
 

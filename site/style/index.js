@@ -6,23 +6,23 @@ const css = require('sheetify')
 
 const body = css`
   :host {
-    font-family: "Neuzeit Book", -apple-system, system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, "Sans Serif", Icons;
+    font-family: -apple-system, system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, "Sans Serif", Icons;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: white;
-    font-size: 1.0em;
+    font-size: 1.3em;
     line-height: 1.4;
-    letter-spacing: 0px;
+    letter-spacing: 0.2px;
   }
 
   :host a, :host a:visited {
     color: black;
+    font-size: 1.15em;
+    font-family: serif;
+    font-style: italic;
     text-decoration: none;
     transition: opacity 0.2s;
-  }
-
-  :host a:hover {
-    text-decoration: underline;
+    letter-spacing: -0.25px;
   }
 
   :host a:active {
