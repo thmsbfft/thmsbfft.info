@@ -16,7 +16,6 @@ const body = css`
 
   :host a, :host a:visited {
     color: black;
-    font-size: 1.075em;
     font-family: serif;
     font-style: italic;
     text-decoration: none;

@@ -14,8 +14,8 @@ const style = css`
   :host {
     display: grid;
     grid-template-rows: 1fr 1fr;
-    padding: 2em;
-    height: calc(100vh - 4em);
+    padding: 1.5em;
+    height: calc(100vh - 3em);
   }
 
   @media screen and (max-width: 850px) {
