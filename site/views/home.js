@@ -95,15 +95,16 @@ module.exports = function (state, emit) {
     <section class="${style}">
         <section>
           <p>
-            <strong>Thomas</strong> is a designer based in Los Angeles.
+            <strong>Thomas Buffet</strong> is a designer based in Los Angeles.
           </p>
           <ul>
             <li>➀ <a href="https://google.com/earth/studio" target="_blank" rel="noopener">Google Earth Studio</a>, an animation tool for Google Earth imagery</li>
-            <li>➁ Real-time graphics and visual metaphors for <a href="https://youtu.be/0YGoxbeSzLc?t=3927" target="_blank" rel="noopener">Pixel</a></li>
-            <li>➂ <a href="https://www.google.com/earth/" target="_blank" rel="noopener">Google Earth</a>, a geographic information system (GIS) application</li>
+            <li>➁ Real-time graphics and visual metaphors for Pixel</li>
+            <li>➂ <a href="https://anotherday.site/" target="_blank" rel="noopener">Another Day</a>, a writing app</li>
             <li>➃ <a href="http://oryoki.io/" target="_blank" rel="noopener">Ōryōki</a>, an experimental web browser</li>
-            <li>➄ <a href="http://pressanykey.today" target="_blank" rel="noopener">pressanykey.today</a></li>
-            <li>➅ <a href="https://vimeo.com/100055018" target="_blank" rel="noopener">Two Computers</a></li>
+            <li>➄ <a href="https://www.google.com/earth/" target="_blank" rel="noopener">Google Earth</a>, a geographic information system (GIS) application</li>
+            <li>➅ <a href="http://pressanykey.today" target="_blank" rel="noopener">pressanykey.today</a></li>
+            <li>➆ <a href="https://vimeo.com/100055018" target="_blank" rel="noopener">Two Computers</a></li>
           </ul>
           <p>Visit <a href="/log" class="${button}">/log</a> for images. Thank you for reading.</p>
           <p>
