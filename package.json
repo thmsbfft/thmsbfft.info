@@ -16,14 +16,14 @@
   "license": "MIT",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
-    "choo": "^6.12.1",
+    "bankai": "^9.15.0",
+    "choo": "^6.13.1",
     "choo-service-worker": "^2.4.0",
-    "intersection-observer": "^0.5.0",
-    "moment-timezone": "^0.5.21",
+    "intersection-observer": "^0.5.1",
+    "moment-timezone": "^0.5.23",
     "monolazy": "0.0.0",
-    "npm": "^5.10.0",
-    "socket.io": "^2.1.1",
-    "bankai": "^9.14.0"
+    "npm": "^6.9.0",
+    "socket.io": "^2.2.0"
   },
   "devDependencies": {
     "choo-devtools": "^2.5.1",
