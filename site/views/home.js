@@ -61,18 +61,6 @@ const status = css`
   }
 `
 
-const button = css`
-  :host {
-    background: lightgrey;
-    border-radius: 8px;
-    padding: 2px 6px;
-  }
-
-  :host:hover {
-    text-decoration: none!important;
-  }
-`
-
 module.exports = function (state, emit) {
   if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE)
 
@@ -106,7 +94,7 @@ module.exports = function (state, emit) {
             <li>➅ <a href="http://pressanykey.today" target="_blank" rel="noopener">pressanykey.today</a></li>
             <li>➆ <a href="https://vimeo.com/100055018" target="_blank" rel="noopener">Two Computers</a></li>
           </ul>
-          <p>Visit <a href="/log" class="${button}">/log</a> for images. Thank you for reading.</p>
+          <p>Visit <a href="/log">/log</a> for images. Thank you for reading.</p>
           <p>
             <a href="mailto:thmsbfft@gmail.com" target="_blank">thmsbfft@gmail.com</a><br/>
           </p>

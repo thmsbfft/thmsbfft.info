@@ -15,8 +15,8 @@ const body = css`
   }
 
   :host a, :host a:visited {
-    color: blue;
-    text-decoration: none;
+    color: black;
+    text-decoration: underline;
     transition: opacity 0.2s;
     letter-spacing: -0.25px;
   }
